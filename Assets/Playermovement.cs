@@ -9,6 +9,10 @@ public class Playermovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Animator animator;
     public CapsuleCollider2D playerCollider;
+    public float slowMoFactor = 0.5f;   // Chậm còn 50% tốc độ
+    public float maxReflexTime = 5f;    // Có 5 giây để dùng
+    private float currentReflexTime;
+    private bool isSlowMo = false;
     
     private Camera mainCam; 
 
@@ -45,7 +49,8 @@ public class Playermovement : MonoBehaviour
     float nextAttackTime = 0f;
     float nextRollTime = 0f;
     
-    float lastOnGroundTime = 0f; 
+    float lastOnGroundTime = 0f;
+    public LayerMask bulletLayer;
 
     Vector2 standSize;
     Vector2 standOffset;
@@ -75,6 +80,7 @@ public class Playermovement : MonoBehaviour
         }
 
         if (slashEffectGO != null) slashEffectGO.SetActive(false);
+        currentReflexTime = maxReflexTime;
     }
 
     void Update()
@@ -100,6 +106,7 @@ public class Playermovement : MonoBehaviour
         JumpingAndAnimation(); 
         Attacking();
         Rolling(); 
+        HandleSlowMotion();
     }
 
     void Moving()
@@ -128,6 +135,36 @@ public class Playermovement : MonoBehaviour
             if (attackPoint != null) attackPoint.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
+    void HandleSlowMotion()
+{
+    var kb = Keyboard.current;
+    if (kb == null) return;
+
+    // Logic sử dụng biến isSlowMo để hết lỗi CS0414
+    if (kb.eKey.isPressed && currentReflexTime > 0)
+    {
+        isSlowMo = true; // Gán giá trị
+        Time.timeScale = slowMoFactor;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale; 
+        currentReflexTime -= Time.unscaledDeltaTime;
+        
+        // Hiệu ứng đổi màu màn hình khi đang SlowMo (Ví dụ)
+        if(spriteRenderer) spriteRenderer.color = new Color(0.7f, 1f, 1f); 
+    }
+    else
+    {
+        isSlowMo = false; // Gán giá trị
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+
+        if (currentReflexTime < maxReflexTime)
+            currentReflexTime += Time.unscaledDeltaTime * 0.5f;
+            
+        if(spriteRenderer) spriteRenderer.color = Color.white;
+    }
+
+    currentReflexTime = Mathf.Clamp(currentReflexTime, 0, maxReflexTime);
+}
 
     void Crouching()
     {
@@ -213,14 +250,10 @@ public class Playermovement : MonoBehaviour
         {
             nextAttackTime = Time.time + attackCooldown;
             
-            // --- LOGIC MỚI: QUAY MẶT THEO CHUỘT KHI CHÉM ---
+            // --- QUAY MẶT THEO CHUỘT KHI CHÉM ---
             if (mouse != null)
             {
-                // Lấy vị trí chuột trong thế giới game
                 Vector2 mousePos = mainCam.ScreenToWorldPoint(mouse.position.ReadValue());
-                
-                // So sánh toạ độ X của chuột và người
-                // Nếu chuột nằm bên phải (> 0) thì quay phải, ngược lại quay trái
                 float directionToMouse = mousePos.x - transform.position.x;
                 
                 if (directionToMouse > 0)
@@ -234,28 +267,35 @@ public class Playermovement : MonoBehaviour
                     if (attackPoint != null) attackPoint.localRotation = Quaternion.Euler(0, 180, 0);
                 }
             }
-            // ------------------------------------------------
 
             if(animator) animator.SetTrigger("attack");
             StartCoroutine(ShowSlashEffect());
             StartCoroutine(AttackLock());
+
+            // --- LOGIC CHÉM ĐẠN PHẢI NẰM TRONG NÀY ---
+            // Chỉ quét tìm đạn NGAY TẠI THỜI ĐIỂM nhấn nút chém
+            Collider2D[] bullets = Physics2D.OverlapCircleAll(attackPoint.position, 1.5f, bulletLayer);
+            foreach (Collider2D b in bullets)
+            {
+                EnemyBullet bulletScript = b.GetComponent<EnemyBullet>();
+                if (bulletScript != null)
+                {
+                    bulletScript.Deflect(); // Gọi hàm xóa đạn/phản đòn
+                }
+                // Làm game khựng lại 1 tí (0.05 giây) để tạo cảm giác lực chém mạnh
+Time.timeScale = 0f;
+StartCoroutine(ResumeTime(0.05f));
+
+// Hàm hỗ trợ hồi phục thời gian
+IEnumerator ResumeTime(float delay) {
+    yield return new WaitForSecondsRealtime(delay);
+    Time.timeScale = 1f;
+}
+            }
         }
     }
-    IEnumerator ShowSlashEffect()
-    {
-        if (slashEffectGO == null) yield break; 
-        slashEffectGO.SetActive(true);
-        yield return new WaitForSeconds(effectDuration);
-        slashEffectGO.SetActive(false);
-    }
+        // Quét tìm đạn trong tầm chém
 
-    System.Collections.IEnumerator AttackLock()
-    {
-        isAttacking = true;
-        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); 
-        yield return new WaitForSeconds(attackLockTime);
-        isAttacking = false;
-    }
 
     void Rolling()
     {
@@ -326,5 +366,22 @@ public class Playermovement : MonoBehaviour
         
         Gizmos.color = Color.green;
         Gizmos.DrawLine(groundCheckPoint.position, groundCheckPoint.position + Vector3.down * stairCheckDistance); 
+    }
+    IEnumerator ShowSlashEffect()
+    {
+        if (slashEffectGO == null) yield break; 
+        
+        slashEffectGO.SetActive(true);
+        yield return new WaitForSeconds(effectDuration);
+        slashEffectGO.SetActive(false);
+    }
+
+    IEnumerator AttackLock()
+    {
+        isAttacking = true;
+        // Đóng băng di chuyển ngang khi đang chém
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); 
+        yield return new WaitForSeconds(attackLockTime);
+        isAttacking = false;
     }
 }
