@@ -528,8 +528,8 @@ TextureImporter:
         y: 954
         width: 33
         height: 35
-      alignment: 9
-      pivot: {x: 0.52146965, y: 0.5202358}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2042,10 +2042,10 @@ TextureImporter:
       name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_69
       rect:
         serializedVersion: 2
-        x: 389
-        y: 508
+        x: 390
+        y: 519
         width: 85
-        height: 39
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2065,9 +2065,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 480
-        y: 524
-        width: 96
-        height: 23
+        y: 519
+        width: 125
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2083,35 +2083,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_71
-      rect:
-        serializedVersion: 2
-        x: 581
-        y: 522
-        width: 9
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1cc832b838a67ebd0800000000000000
-      internalID: -2600993146575549247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_72
       rect:
         serializedVersion: 2
-        x: 619
-        y: 533
-        width: 59
-        height: 11
+        x: 615
+        y: 520
+        width: 83
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2127,35 +2105,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_73
-      rect:
-        serializedVersion: 2
-        x: 645
-        y: 528
-        width: 16
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 76c2956b42fa355c0800000000000000
-      internalID: -4227843052957782937
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_74
       rect:
         serializedVersion: 2
         x: 701
-        y: 519
-        width: 167
-        height: 26
+        y: 521
+        width: 96
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2166,72 +2122,6 @@ TextureImporter:
       bones: []
       spriteID: 75fd177c318c72420800000000000000
       internalID: 2605270896733183831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_75
-      rect:
-        serializedVersion: 2
-        x: 553
-        y: 521
-        width: 13
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3b3064eac74b3eb40800000000000000
-      internalID: 5468412820150682547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_76
-      rect:
-        serializedVersion: 2
-        x: 596
-        y: 521
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 98ff46236d5fbef00800000000000000
-      internalID: 1147280830413209481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_77
-      rect:
-        serializedVersion: 2
-        x: 668
-        y: 519
-        width: 27
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c63baf20290906d00800000000000000
-      internalID: 963929277046895468
       vertices: []
       indices: 
       edges: []
@@ -2376,8 +2266,8 @@ TextureImporter:
         y: 397
         width: 46
         height: 25
-      alignment: 9
-      pivot: {x: 0.50000006, y: 0.80159426}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2398,8 +2288,8 @@ TextureImporter:
         y: 398
         width: 60
         height: 14
-      alignment: 9
-      pivot: {x: 0.5038338, y: 1.2885698}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2420,8 +2310,8 @@ TextureImporter:
         y: 399
         width: 55
         height: 13
-      alignment: 9
-      pivot: {x: 0.4925759, y: 1.3794767}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2442,8 +2332,8 @@ TextureImporter:
         y: 398
         width: 58
         height: 17
-      alignment: 9
-      pivot: {x: 0.5, y: 1.1244992}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2464,8 +2354,8 @@ TextureImporter:
         y: 398
         width: 55
         height: 12
-      alignment: 9
-      pivot: {x: 0.5024458, y: 1.588262}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2486,8 +2376,8 @@ TextureImporter:
         y: 399
         width: 54
         height: 10
-      alignment: 9
-      pivot: {x: 0.5, y: 1.7620666}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -3530,6 +3420,28 @@ TextureImporter:
       bones: []
       spriteID: b7b5b8cc0718d8850800000000000000
       internalID: 6380898568521866107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Katana ZERO - Playable Characters - Zero (2)_77
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 520
+        width: 74
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 431c3a27ce2fe3a41848e265f3e263f2
+      internalID: 963929277046895468
       vertices: []
       indices: 
       edges: []
