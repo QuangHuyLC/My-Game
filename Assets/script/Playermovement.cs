@@ -11,12 +11,29 @@ public class Playermovement : MonoBehaviour
     public CapsuleCollider2D playerCollider;
     private Camera mainCam; 
 
-    [Header("AUDIO (FULL COMBO)")]
+    [Header("AUDIO SYSTEM (FULL CONTROL)")]
     public AudioSource audioSource;
+    
+    [Header("1. Chém (Slash)")]
     public AudioClip slashSound;       
+    [Range(0f, 1f)] public float slashVolume = 0.5f; 
+
+    [Header("2. Nhảy (Jump)")]
     public AudioClip jumpSound;        
+    [Range(0f, 1f)] public float jumpVolume = 0.5f;  
+
+    [Header("3. Bước chân (Footsteps)")]
     public AudioClip[] footstepSounds; 
-    public AudioClip teleportSound; // (MỚI) Tiếng Teleport
+    [Range(0f, 1f)] public float footstepVolume = 0.4f; 
+
+    [Header("4. Teleport (Skill)")]
+    public AudioClip teleportSound; 
+    [Range(0f, 1f)] public float teleportVolume = 0.7f; 
+
+    [Header("5. Chạm đất (Landing) - MỚI")]
+    public AudioClip landSound;        
+    [Range(0f, 1f)] public float landVolume = 0.5f;
+    // -------------------------------------------------------------
 
     [Header("Reflex Mode (Bấm E)")]
     public float slowMoFactor = 0.5f;   
@@ -25,12 +42,11 @@ public class Playermovement : MonoBehaviour
     private bool isSlowMo = false;
     private bool isHitStopping = false; 
 
-    [Header("FIFTEEN TELEPORT (Bấm Chuột Phải)")] // --- TÍNH NĂNG MỚI ---
-    public float teleportDistance = 5f;    // Khoảng cách tối đa
-    public float teleportCooldown = 1.0f;  // Hồi chiêu
-    public LayerMask wallLayer;            // Layer của Tường (để không bay xuyên tường)
+    [Header("FIFTEEN TELEPORT (Bấm Chuột Phải)")]
+    public float teleportDistance = 5f;    
+    public float teleportCooldown = 1.0f;  
+    public LayerMask wallLayer;            
     private float nextTeleportTime;
-    // -------------------------------------------------------------------
 
     [Header("KATANA ZERO GHOST EFFECT")]
     public GameObject ghostPrefab;     
@@ -71,6 +87,7 @@ public class Playermovement : MonoBehaviour
     [Header("Dust Effects")]
     public GameObject runDustPrefab;   
     public GameObject jumpDustPrefab;  
+    public GameObject landDustPrefab; // Có thể kéo jumpDust vào đây nếu lười tạo cái mới
 
     // --- CÁC BIẾN PUBLIC ---
     public bool isAttacking = false;
@@ -116,10 +133,27 @@ public class Playermovement : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) return;
         bool currentCheck = false;
         if (groundCheckPoint != null)
             currentCheck = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
         
+        // --- LOGIC CHECK CHẠM ĐẤT & PHÁT TIẾNG (MỚI) ---
+        // Nếu lúc trước chưa chạm đất (isGrounded = false) mà giờ chạm (currentCheck = true)
+        // Và vận tốc Y đang âm (đang rơi xuống)
+        if (currentCheck && !isGrounded && rb.linearVelocity.y < 0.1f)
+        {
+            // Phát tiếng chạm đất
+            if (audioSource != null && landSound != null)
+            {
+                audioSource.pitch = Random.Range(0.9f, 1.1f);
+                audioSource.PlayOneShot(landSound, landVolume);
+            }
+            // Tạo bụi khi chạm đất (nếu có)
+            CreateDust(landDustPrefab != null ? landDustPrefab : jumpDustPrefab, 0); 
+        }
+        // ------------------------------------------------
+
         if (currentCheck) { isGrounded = true; lastOnGroundTime = Time.time; }
         else { isGrounded = false; }
 
@@ -131,84 +165,68 @@ public class Playermovement : MonoBehaviour
         JumpingAndAnimation(); 
         Attacking();
         Rolling(); 
-        TeleportSkill(); // --- GỌI HÀM TELEPORT ---
+        TeleportSkill(); 
         HandleSlowMotion();
     }
 
-    // --- KỸ NĂNG TELEPORT CỦA FIFTEEN (MỚI) ---
     void TeleportSkill()
     {
         var mouse = Mouse.current;
         if (mouse == null) return;
 
-        // Bấm Chuột Phải để Teleport
         if (mouse.rightButton.wasPressedThisFrame && Time.time >= nextTeleportTime)
         {
             Vector2 mousePos = mainCam.ScreenToWorldPoint(mouse.position.ReadValue());
             Vector2 dir = (mousePos - (Vector2)transform.position).normalized;
-            
-            // Tính toán khoảng cách thực tế (không cho xuyên tường)
             float dist = teleportDistance;
             
-            // Bắn tia Raycast kiểm tra tường (Wall Layer)
             RaycastHit2D wallHit = Physics2D.Raycast(transform.position, dir, teleportDistance, wallLayer);
-            if (wallHit.collider != null)
-            {
-                // Nếu gặp tường thì chỉ tele đến sát tường thôi (trừ đi 1 xíu để k kẹt)
-                dist = wallHit.distance - 0.5f; 
-            }
+            if (wallHit.collider != null) dist = wallHit.distance - 0.5f; 
 
             Vector2 targetPos = (Vector2)transform.position + (dir * dist);
 
-            // 1. XỬ LÝ SÁT THƯƠNG TRÊN ĐƯỜNG ĐI (Giết hết quái nằm trên tia ray)
             RaycastHit2D[] enemiesHit = Physics2D.RaycastAll(transform.position, dir, dist, enemyLayer);
             foreach (RaycastHit2D hit in enemiesHit)
             {
                 EnemyHealth eHealth = hit.collider.GetComponent<EnemyHealth>();
                 if (eHealth != null)
                 {
-                    eHealth.TakeDamage(damage * 2, transform.position); // Teleport chém đau gấp đôi
-                    TriggerHitStop(0.1f); // Khựng hình cho phê
+                    eHealth.TakeDamage(damage * 2, transform.position); 
+                    TriggerHitStop(0.1f); 
                 }
             }
 
-            // 2. TẠO HIỆU ỨNG GHOST DỌC ĐƯỜNG (Để lại bóng mờ)
             StartCoroutine(SpawnGhostsAlongPath(transform.position, targetPos));
-
-            // 3. DI CHUYỂN TỨC THỜI
             transform.position = targetPos;
-            rb.linearVelocity = Vector2.zero; // Reset vận tốc
+            rb.linearVelocity = Vector2.zero; 
 
-            // 4. ÂM THANH & COOLDOWN
-            if (audioSource != null && teleportSound != null) audioSource.PlayOneShot(teleportSound);
+            // --- TELEPORT VOLUME ---
+            if (audioSource != null && teleportSound != null) 
+                audioSource.PlayOneShot(teleportSound, teleportVolume);
+
             nextTeleportTime = Time.time + teleportCooldown;
 
-            // Xoay mặt nhân vật theo hướng tele
             if (dir.x > 0) spriteRenderer.flipX = false;
             else if (dir.x < 0) spriteRenderer.flipX = true;
         }
     }
 
-    // Hàm phụ: Rải bóng ma trên đường tele cho đẹp
     IEnumerator SpawnGhostsAlongPath(Vector2 start, Vector2 end)
     {
         float distance = Vector2.Distance(start, end);
-        int ghostCount = 5; // Số lượng bóng muốn rải
+        int ghostCount = 5; 
         for (int i = 0; i < ghostCount; i++)
         {
             Vector2 pos = Vector2.Lerp(start, end, (float)i / ghostCount);
-            
-            // Tạo bóng thủ công
             if (ghostPrefab != null)
             {
                 GameObject ghost = Instantiate(ghostPrefab, pos, transform.rotation);
                 GhostSprite script = ghost.GetComponent<GhostSprite>();
-                if (script != null) script.Setup(spriteRenderer, new Color(1f, 0f, 0f, 0.5f), 0.3f); // Bóng màu ĐỎ cho ngầu
+                if (script != null) script.Setup(spriteRenderer, new Color(1f, 0f, 0f, 0.5f), 0.3f); 
             }
         }
         yield return null;
     }
-    // ------------------------------------------
 
     public void PlayFootstep()
     {
@@ -216,7 +234,8 @@ public class Playermovement : MonoBehaviour
         {
             int randIndex = Random.Range(0, footstepSounds.Length);
             audioSource.pitch = Random.Range(0.9f, 1.1f); 
-            audioSource.PlayOneShot(footstepSounds[randIndex]);
+            // --- FOOTSTEP VOLUME ---
+            audioSource.PlayOneShot(footstepSounds[randIndex], footstepVolume);
         }
     }
 
@@ -311,7 +330,8 @@ public class Playermovement : MonoBehaviour
             if (audioSource != null && jumpSound != null) 
             {
                 audioSource.pitch = 1f; 
-                audioSource.PlayOneShot(jumpSound);
+                // --- JUMP VOLUME ---
+                audioSource.PlayOneShot(jumpSound, jumpVolume);
             }
 
             float facingDir = spriteRenderer.flipX ? -1f : 1f;
@@ -360,7 +380,8 @@ public class Playermovement : MonoBehaviour
             if (audioSource != null && slashSound != null) 
             {
                 audioSource.pitch = Random.Range(0.95f, 1.05f);
-                audioSource.PlayOneShot(slashSound);
+                // --- SLASH VOLUME ---
+                audioSource.PlayOneShot(slashSound, slashVolume); 
             }
 
             StartCoroutine(ShowSlashEffect());
@@ -390,15 +411,17 @@ public class Playermovement : MonoBehaviour
         }
     }
     
-    // ... (Các hàm còn lại giữ nguyên) ...
     void CreateDust(GameObject dustPrefab, float direction)
     {
         if (dustPrefab != null && groundCheckPoint != null)
         {
             GameObject dust = Instantiate(dustPrefab, groundCheckPoint.position, Quaternion.identity);
             Vector3 theScale = dust.transform.localScale;
-            if (direction > 0) theScale.x = -Mathf.Abs(theScale.x); 
-            else theScale.x = Mathf.Abs(theScale.x); 
+            // Nếu direction = 0 (chạm đất thẳng đứng) thì giữ nguyên scale
+            if (direction != 0) {
+                if (direction > 0) theScale.x = -Mathf.Abs(theScale.x); 
+                else theScale.x = Mathf.Abs(theScale.x); 
+            }
             dust.transform.localScale = theScale;
         }
     }
