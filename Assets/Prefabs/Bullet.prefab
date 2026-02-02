@@ -181,3 +181,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBullet
   speed: 7
   damage: 10
+  deflectColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  searchRadius: 20
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  rotationOffset: 0
