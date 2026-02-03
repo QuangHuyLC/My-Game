@@ -7699,10 +7699,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1045223037}
   - component: {fileID: 1045223036}
-  - component: {fileID: 1045223035}
   - component: {fileID: 1045223034}
   - component: {fileID: 1045223040}
   - component: {fileID: 1045223039}
+  - component: {fileID: 1045223035}
   - component: {fileID: 1045223041}
   m_Layer: 9
   m_Name: IDLE_0
@@ -7902,7 +7902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 50
-  thoiGianHurtXongDie: 0.5
+  thoiGianHurtXongDie: 1
   meleeAI: {fileID: 0}
   sniperAI: {fileID: 0}
   bloodEffect: {fileID: 0}

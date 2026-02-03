@@ -126,4 +126,14 @@ public class MeleeEnemy : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, tamPhatHien);
     }
+    // Dán cái này vào cuối script MeleeEnemy.cs
+    public void StopAttackImmediately()
+    {
+        // 1. Tự tắt mình đi
+        this.enabled = false; 
+        
+        // 2. Hủy hết các lệnh đang chờ (như lệnh tấn công)
+        StopAllCoroutines(); 
+        CancelInvoke();      
+    }
 }

@@ -6128,7 +6128,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7425518, y: -0.42408, z: -10}
+  m_LocalPosition: {x: 0.8003025, y: -0.55031, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8370,7 +8370,7 @@ MonoBehaviour:
   moveSpeed: 2
   leftPoint: {fileID: 1625028877}
   rightPoint: {fileID: 1020277018}
-  detectionRange: 8
+  detectionRange: 5
   viewAngle: 81.4
   playerLayer:
     serializedVersion: 2
@@ -8414,15 +8414,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 1
+  coAnimationDie: 1
+  thoiGianChoHurt: 0.5
+  thoiGianFlicker: 1
+  deathAnimDuration: 1
+  meleeAI: {fileID: 0}
+  sniperAI: {fileID: 1383488557}
   bloodEffect: {fileID: 0}
   hitSound: {fileID: 8300000, guid: fb64bded415ea884cb3560fee2b2a00b, type: 3}
   knockbackForce: 5
-  stunDuration: 0.2
-  movementScript: {fileID: 1383488557}
-  shootingScript: {fileID: 1383488557}
-  deathAnimDuration: 0.5
-  flickerCount: 2
-  flickerSpeed: 0.08
 --- !u!1 &1387352798
 GameObject:
   m_ObjectHideFlags: 0

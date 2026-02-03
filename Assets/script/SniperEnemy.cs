@@ -158,4 +158,11 @@ public class SniperEnemy : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + leftBoundary * detectionRange);
         Gizmos.DrawLine(transform.position, transform.position + rightBoundary * detectionRange);
     }
+    // Dán cái này vào cuối script SniperEnemy.cs
+    public void StopAttackImmediately()
+    {
+        this.enabled = false; 
+        StopAllCoroutines(); 
+        CancelInvoke();      
+    }
 }
