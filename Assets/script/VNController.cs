@@ -17,7 +17,7 @@ public class VNController : MonoBehaviour
     public CanvasGroup uiCanvasGroup;
     public TextMeshProUGUI textNoiDung;
     public TextMeshProUGUI textTenNhanVat;
-    public Button nutBamToanManHinh;
+    public Button nutBamToanManHinh; // Cái nút này sẽ lo việc click chuột
 
     [Header("--- Nhân vật ---")]
     public Image anhNhanVat1;
@@ -74,19 +74,25 @@ public class VNController : MonoBehaviour
             VaoGameChinh();
         }
 
+        // Đăng ký sự kiện Click cho nút toàn màn hình
         if (nutBamToanManHinh != null)
             nutBamToanManHinh.onClick.AddListener(XuLyInput);
     }
 
     void Update()
     {
+        // --- SỬA LỖI Ở ĐÂY: CHỈ GIỮ LẠI PHÍM BẤM (Space / Enter) ---
+        // (Bỏ phần check chuột Mouse.leftButton đi vì nút UI đã làm việc đó rồi)
+        
         var kb = Keyboard.current;
-        var mouse = Mouse.current;
         bool bamPhim = false;
 
-        if (kb != null && (kb.spaceKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame)) bamPhim = true;
-        if (mouse != null && mouse.leftButton.wasPressedThisFrame) bamPhim = true;
+        if (kb != null && (kb.spaceKey.wasPressedThisFrame || kb.enterKey.wasPressedThisFrame)) 
+        {
+            bamPhim = true;
+        }
 
+        // Nếu bấm phím Space/Enter thì gọi hàm xử lý
         if (bamPhim) XuLyInput();
     }
 
@@ -127,7 +133,6 @@ public class VNController : MonoBehaviour
         }
     }
 
-    // --- SỬA ĐỔI 1: Intro tắt -> Nghỉ 1 tí -> Mới vào game ---
     IEnumerator ChuyenCanhVaoGame()
     {
         dangOIntro = true; // Vẫn khóa input
@@ -149,7 +154,7 @@ public class VNController : MonoBehaviour
             introPanel.SetActive(false);
         }
 
-        // --- QUAN TRỌNG: Đợi 1 giây để người chơi ngắm nhân vật ---
+        // Đợi 1 giây để người chơi ngắm nhân vật
         yield return new WaitForSeconds(1f); 
 
         // Sau đó mới gọi hiện hội thoại
@@ -175,7 +180,6 @@ public class VNController : MonoBehaviour
         }
     }
 
-    // --- SỬA ĐỔI 2: Hàm làm khung thoại hiện từ từ ---
     IEnumerator HienHoiThoaiTuTu()
     {
         float timer = 0f;
