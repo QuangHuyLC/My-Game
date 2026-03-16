@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.UI; 
 
 public class Playermovement : MonoBehaviour
 {
@@ -10,6 +11,18 @@ public class Playermovement : MonoBehaviour
     public Animator animator;
     public CapsuleCollider2D playerCollider;
     private Camera mainCam; 
+
+    [Header("--- UI KỸ NĂNG (COOLDOWN) ---")]
+    [Tooltip("Kéo cái hình lớp phủ màu đen (Filled 360) của chiêu Chém vào đây")]
+    public Image attackCooldownImage;
+    [Tooltip("Kéo cái hình lớp phủ màu đen (Filled 360) của chiêu Lăn vào đây")]
+    public Image rollCooldownImage;
+    [Tooltip("Kéo cái hình lớp phủ màu đen (Filled 360) của chiêu Teleport vào đây")]
+    public Image teleportCooldownImage;
+    
+    // ---> ĐÃ THÊM: Biến chứa UI của chiêu E (Reflex Mode)
+    [Tooltip("Kéo thanh năng lượng (Filled Horizontal) của chiêu E vào đây")]
+    public Image slowMoBarImage; 
 
     [Header("AUDIO SYSTEM")]
     public AudioSource audioSource;
@@ -27,7 +40,7 @@ public class Playermovement : MonoBehaviour
     [Header("Reflex Mode")]
     public float slowMoFactor = 0.5f;   
     public float maxReflexTime = 5f;    
-    private float currentReflexTime;
+    public float currentReflexTime; 
     private bool isSlowMo = false;
     private bool isHitStopping = false; 
 
@@ -50,12 +63,14 @@ public class Playermovement : MonoBehaviour
     public float rollSpeed = 12f;
     public float damage = 20f;
 
+    [Header("--- NHẬN SÁT THƯƠNG & ĐẨY LÙI ---")]
+    public float knockbackForce = 12f; 
+    public float hurtDuration = 0.25f; 
+
     [Header("--- MOVEMENT FEEL (CỰC QUAN TRỌNG) ---")]
     public float coyoteTime = 0.2f; 
     public float jumpBufferTime = 0.2f;
-    [Tooltip("Hệ số trọng lực khi rơi (Rơi nhanh hơn nhảy lên)")]
     public float fallGravityMult = 5f; 
-    [Tooltip("Hệ số cắt nhảy (Thả nút sớm thì nhảy thấp)")]
     public float jumpCutMult = 0.5f;
     private float defaultGravityScale;
     private float coyoteTimeCounter;
@@ -128,7 +143,7 @@ public class Playermovement : MonoBehaviour
         
         if (rb != null) {
             rb.freezeRotation = true; 
-            defaultGravityScale = 3f; // Lưu trọng lực mặc định
+            defaultGravityScale = 3f; 
             rb.gravityScale = defaultGravityScale; 
             PhysicsMaterial2D noBounceMat = new PhysicsMaterial2D("NoBounce");
             noBounceMat.bounciness = 0f; 
@@ -138,13 +153,68 @@ public class Playermovement : MonoBehaviour
 
         if (slashEffectGO != null) slashEffectGO.SetActive(false);
         currentReflexTime = maxReflexTime;
+        
+        if (attackCooldownImage != null) attackCooldownImage.fillAmount = 0f;
+        if (rollCooldownImage != null) rollCooldownImage.fillAmount = 0f;
+        if (teleportCooldownImage != null) teleportCooldownImage.fillAmount = 0f;
+        
+        // Cập nhật đầy bình cho UI E lúc mới vô game
+        if (slowMoBarImage != null) slowMoBarImage.fillAmount = 1f;
     }
 
     void Update()
     {
         if (Time.timeScale == 0) return; 
 
-        // 1. CHECK GROUND
+        if (isHurting || isRolling) return;
+
+        CheckGrounded();
+        HandleTimers();
+        CheckWallLogic();
+        UpdateAnimator(); 
+        ApplyGravityLogic();
+
+        if (canMove && !isAttacking) Moving();
+        
+        Crouching(); 
+        BetterJumping();
+        Attacking();
+        Rolling(); 
+        TeleportSkill(); 
+        HandleSlowMotion();
+        
+        UpdateSkillUI();
+    }
+
+    void UpdateSkillUI()
+    {
+        if (attackCooldownImage != null)
+        {
+            float attackRemaining = nextAttackTime - Time.time;
+            attackCooldownImage.fillAmount = Mathf.Clamp01(attackRemaining / attackCooldown);
+        }
+
+        if (rollCooldownImage != null)
+        {
+            float rollRemaining = nextRollTime - Time.time;
+            rollCooldownImage.fillAmount = Mathf.Clamp01(rollRemaining / rollCooldown);
+        }
+
+        if (teleportCooldownImage != null)
+        {
+            float teleportRemaining = nextTeleportTime - Time.time;
+            teleportCooldownImage.fillAmount = Mathf.Clamp01(teleportRemaining / teleportCooldown);
+        }
+
+        // ---> ĐÃ THÊM: Tính toán phần trăm cho UI của chiêu E (Reflex Mode)
+        if (slowMoBarImage != null)
+        {
+            slowMoBarImage.fillAmount = currentReflexTime / maxReflexTime;
+        }
+    }
+
+    void CheckGrounded()
+    {
         bool currentCheck = false;
         if (groundCheckPoint != null)
             currentCheck = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
@@ -161,8 +231,10 @@ public class Playermovement : MonoBehaviour
 
         if (currentCheck) { isGrounded = true; lastOnGroundTime = Time.time; }
         else { isGrounded = false; }
+    }
 
-        // 2. TIMERS & INPUT
+    void HandleTimers()
+    {
         if (isGrounded) coyoteTimeCounter = coyoteTime;
         else coyoteTimeCounter -= Time.deltaTime;
 
@@ -171,49 +243,22 @@ public class Playermovement : MonoBehaviour
             if (kb.spaceKey.wasPressedThisFrame) jumpBufferCounter = jumpBufferTime;
             else jumpBufferCounter -= Time.deltaTime;
         }
-
-        if (isHurting) return; 
-        if (isRolling) return;
-
-        CheckWallLogic();
-        UpdateAnimator(); 
-        
-        // --- GỌI HÀM XỬ LÝ TRỌNG LỰC MỚI ---
-        ApplyGravityLogic();
-        // ------------------------------------
-
-        if (canMove) Moving();
-        
-        Crouching(); 
-        BetterJumping();
-        Attacking();
-        Rolling(); 
-        TeleportSkill(); 
-        HandleSlowMotion();
     }
 
-    // --- LOGIC TRỌNG LỰC & NHẢY MỚI (TẠO CẢM GIÁC BAY NHẢY) ---
     void ApplyGravityLogic()
     {
-        // Nếu đang bám tường hoặc lướt -> Không can thiệp trọng lực (để logic tường tự lo)
         if (isWallGrabbing || isWallSliding || isRolling) return;
 
-        // 1. Rơi nhanh (Fast Fall): Khi vận tốc Y < 0, tăng trọng lực lên
-        if (rb.linearVelocity.y < 0)
-        {
+        if (rb.linearVelocity.y < 0) {
             rb.gravityScale = defaultGravityScale * fallGravityMult;
         }
-        // 2. Nhảy thấp (Jump Cut): Nếu đang bay lên (Y > 0) mà thả nút Space -> Cắt bớt lực nhảy
-        else if (rb.linearVelocity.y > 0 && Keyboard.current != null && !Keyboard.current.spaceKey.isPressed)
-        {
-            rb.gravityScale = defaultGravityScale * (1f / jumpCutMult); // Tăng trọng lực đột ngột để hãm lại
+        else if (rb.linearVelocity.y > 0 && Keyboard.current != null && !Keyboard.current.spaceKey.isPressed) {
+            rb.gravityScale = defaultGravityScale * (1f / jumpCutMult); 
         }
-        else
-        {
+        else {
             rb.gravityScale = defaultGravityScale;
         }
     }
-    // -----------------------------------------------------------
 
     void UpdateAnimator()
     {
@@ -222,14 +267,11 @@ public class Playermovement : MonoBehaviour
         animator.SetBool("isWallGrabbing", isWallGrabbing);
         animator.SetBool("isGrounded", isGrounded);
 
-        if (!isWallSliding && !isWallGrabbing && !isCrouching)
-        {
+        if (!isWallSliding && !isWallGrabbing && !isCrouching) {
             bool isJumpingUp = rb.linearVelocity.y > 0.1f;
             bool isFallingForReal = (rb.linearVelocity.y < 0) && !isGrounded;
             animator.SetBool("jump", isJumpingUp || isFallingForReal);
-        }
-        else
-        {
+        } else {
             animator.SetBool("jump", false);
         }
     }
@@ -253,35 +295,26 @@ public class Playermovement : MonoBehaviour
             float facingDirection = spriteRenderer.flipX ? -1f : 1f;
             bool isPushingAgainstWall = (horizontalInput != 0 && horizontalInput == facingDirection);
 
-            if (isPushingAgainstWall) 
-            {
+            if (isPushingAgainstWall) {
                 isWallGrabbing = true;
                 rb.linearVelocity = Vector2.zero; 
                 rb.gravityScale = 0; 
-            }
-            else 
-            {
+            } else {
                 isWallSliding = true;
-                rb.gravityScale = defaultGravityScale; // Reset về mặc định khi trượt
+                rb.gravityScale = defaultGravityScale;
                 if (rb.linearVelocity.y < -wallSlideSpeed)
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, -wallSlideSpeed);
             }
-        }
-        else
-        {
-            // Trọng lực sẽ được hàm ApplyGravityLogic xử lý ở Update
         }
     }
 
     void BetterJumping()
     {
-        if (jumpBufferCounter > 0 && (isWallSliding || isWallGrabbing))
-        {
+        if (jumpBufferCounter > 0 && (isWallSliding || isWallGrabbing)) {
             WallJump();
             return; 
         }
-        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0 && !isAttacking && !isCrouching)
-        {
+        if (jumpBufferCounter > 0 && coyoteTimeCounter > 0 && !isAttacking && !isCrouching) {
             PerformJump(jump);
         }
     }
@@ -330,7 +363,6 @@ public class Playermovement : MonoBehaviour
     {
         var kb = Keyboard.current;
         if (kb == null) return;
-        if (isAttacking) return; 
 
         float horizontal = 0f;
         if (!isCrouching) {
@@ -359,34 +391,42 @@ public class Playermovement : MonoBehaviour
         }
     }
 
-    // --- GIỮ NGUYÊN CÁC HÀM CÒN LẠI (Teleport, VFX, Attack...) ---
-    void TeleportSkill() {
+    void TeleportSkill() 
+    {
         var mouse = Mouse.current;
         if (mouse == null) return;
         if (mouse.rightButton.wasPressedThisFrame && Time.time >= nextTeleportTime) {
             Vector2 mousePos = mainCam.ScreenToWorldPoint(mouse.position.ReadValue());
             Vector2 dir = (mousePos - (Vector2)transform.position).normalized;
             float dist = teleportDistance;
+            
             RaycastHit2D wallHit = Physics2D.Raycast(transform.position, dir, teleportDistance, wallLayer);
             if (wallHit.collider != null) dist = wallHit.distance - 0.5f; 
+            
             Vector2 targetPos = (Vector2)transform.position + (dir * dist);
+            
             RaycastHit2D[] enemiesHit = Physics2D.RaycastAll(transform.position, dir, dist, enemyLayer);
             foreach (RaycastHit2D hit in enemiesHit) {
-                EnemyHealth eHealth = hit.collider.GetComponent<EnemyHealth>();
-                if (eHealth != null) {
-                    eHealth.TakeDamage(damage * 2, transform.position); 
+                EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                if (enemyHealth != null) {
+                    enemyHealth.TakeDamage(damage * 2, transform.position);
                     TriggerHitStop(0.1f); 
                 }
             }
+
             StartCoroutine(SpawnGhostsAlongPath(transform.position, targetPos));
             transform.position = targetPos;
             rb.linearVelocity = Vector2.zero; 
+            
             if (audioSource != null && teleportSound != null) audioSource.PlayOneShot(teleportSound, teleportVolume);
+            
             nextTeleportTime = Time.time + teleportCooldown;
+            
             if (dir.x > 0) spriteRenderer.flipX = false;
             else if (dir.x < 0) spriteRenderer.flipX = true;
         }
     }
+
     IEnumerator SpawnGhostsAlongPath(Vector2 start, Vector2 end) {
         float distance = Vector2.Distance(start, end);
         int ghostCount = 5; 
@@ -400,13 +440,15 @@ public class Playermovement : MonoBehaviour
         }
         yield return null;
     }
+
     public void PlayFootstep() {
-        if (isGrounded && footstepSounds.Length > 0 && audioSource != null) {
+        if (isGrounded && footstepSounds != null && footstepSounds.Length > 0 && audioSource != null) {
             int randIndex = Random.Range(0, footstepSounds.Length);
             audioSource.pitch = Random.Range(0.9f, 1.1f); 
             audioSource.PlayOneShot(footstepSounds[randIndex], footstepVolume);
         }
     }
+
     void MakeGhost() {
         if (ghostPrefab == null) return;
         if (ghostTimer > 0) ghostTimer -= Time.deltaTime; 
@@ -417,10 +459,12 @@ public class Playermovement : MonoBehaviour
             ghostTimer = ghostDelay;
         }
     }
+
     void HandleSlowMotion() {
         if (isHitStopping) return; 
         var kb = Keyboard.current;
         if (kb == null) return;
+        
         if (kb.eKey.isPressed && currentReflexTime > 0) {
             isSlowMo = true;
             Time.timeScale = slowMoFactor;
@@ -437,10 +481,12 @@ public class Playermovement : MonoBehaviour
         }
         currentReflexTime = Mathf.Clamp(currentReflexTime, 0, maxReflexTime);
     }
+
     public void TriggerHitStop(float duration) {
         if (isHitStopping) return;
         StartCoroutine(HitStopRoutine(duration));
     }
+
     IEnumerator HitStopRoutine(float duration) {
         isHitStopping = true;
         Time.timeScale = 0f; 
@@ -448,6 +494,7 @@ public class Playermovement : MonoBehaviour
         isHitStopping = false; 
         Time.timeScale = 1f; 
     }
+
     void CreateDust(GameObject dustPrefab, float direction) {
         if (dustPrefab != null && groundCheckPoint != null) {
             GameObject dust = Instantiate(dustPrefab, groundCheckPoint.position, Quaternion.identity);
@@ -459,11 +506,13 @@ public class Playermovement : MonoBehaviour
             dust.transform.localScale = theScale;
         }
     }
+
     void Crouching() {
         var kb = Keyboard.current;
         if (kb == null) return;
+        
         bool isDownPressed = kb.sKey.isPressed || kb.downArrowKey.isPressed;
-        if (isDownPressed && !isCrouching) {
+        if (isDownPressed && !isCrouching && isGrounded) {
             isCrouching = true;
             if(animator) animator.SetBool("isCrouching", true);
             ResizeCollider(true);
@@ -473,6 +522,7 @@ public class Playermovement : MonoBehaviour
             ResizeCollider(false);
         }
     }
+
     void ResizeCollider(bool crouching) {
         if (playerCollider == null) return;
         if (crouching) {
@@ -483,55 +533,131 @@ public class Playermovement : MonoBehaviour
             playerCollider.offset = standOffset;
         }
     }
+
     void Rolling() {
         var kb = Keyboard.current;
         var mouse = Mouse.current;
         if (kb == null) return;
-        if (kb.leftShiftKey.wasPressedThisFrame && Time.time >= nextRollTime) {
+        
+        if (kb.leftShiftKey.wasPressedThisFrame && Time.time >= nextRollTime && isGrounded) {
             float direction = 0f;
             if (kb.aKey.isPressed) direction = -1f;
             else if (kb.dKey.isPressed) direction = 1f;
+            
             if (direction == 0f && mouse != null) {
                 Vector2 mousePos = mainCam.ScreenToWorldPoint(mouse.position.ReadValue());
                 direction = mousePos.x > transform.position.x ? 1f : -1f;
             }
             if (direction == 0f) direction = spriteRenderer.flipX ? -1f : 1f;
+            
+            nextRollTime = Time.time + rollCooldown;
             StartCoroutine(RollRoutine(direction));
         }
     }
+
     IEnumerator RollRoutine(float dir) {
         isRolling = true;
-        nextRollTime = Time.time + rollCooldown;
+        
         int originalLayer = gameObject.layer; 
         int rollLayer = LayerMask.NameToLayer("PlayerRoll");
         if (rollLayer != -1) gameObject.layer = rollLayer; 
+        
         if(animator) {
             animator.SetBool("isCrouching", false);
             animator.SetTrigger("roll");
         }
-        if (dir > 0) spriteRenderer.flipX = false;
-        else spriteRenderer.flipX = true;
+        
+        spriteRenderer.flipX = (dir < 0);
         rb.linearVelocity = new Vector2(dir * rollSpeed, 0f); 
+        
         float elapsedTime = 0f;
         while(elapsedTime < rollDuration) {
             MakeGhost(); 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        
         gameObject.layer = originalLayer;
         isRolling = false;
         rb.linearVelocity = Vector2.zero; 
+        
         var kb = Keyboard.current;
-        bool isHoldingDown = kb.sKey.isPressed || kb.downArrowKey.isPressed;
-        if (isHoldingDown) { isCrouching = true; if(animator) animator.SetBool("isCrouching", true); ResizeCollider(true); }
-        else { isCrouching = false; ResizeCollider(false); }
+        bool isHoldingDown = kb != null && (kb.sKey.isPressed || kb.downArrowKey.isPressed);
+        if (isHoldingDown) { 
+            isCrouching = true; 
+            if(animator) animator.SetBool("isCrouching", true); 
+            ResizeCollider(true); 
+        } else { 
+            isCrouching = false; 
+            ResizeCollider(false); 
+        }
     }
+
+    void Attacking() {
+        var kb = Keyboard.current;
+        var mouse = Mouse.current;
+        if (kb == null) return;
+        
+        bool attackInput = kb.jKey.wasPressedThisFrame || (mouse != null && mouse.leftButton.wasPressedThisFrame);
+        if (attackInput && Time.time >= nextAttackTime && !isWallGrabbing && !isWallSliding) {
+            nextAttackTime = Time.time + attackCooldown;
+            
+            if (mouse != null) {
+                Vector2 mousePos = mainCam.ScreenToWorldPoint(mouse.position.ReadValue());
+                float directionToMouse = mousePos.x - transform.position.x;
+                spriteRenderer.flipX = (directionToMouse < 0);
+                if (attackPoint != null) {
+                    attackPoint.localRotation = Quaternion.Euler(0, directionToMouse < 0 ? 180 : 0, 0);
+                }
+            }
+            
+            if(animator) animator.SetTrigger("attack");
+            if (audioSource != null && slashSound != null) {
+                audioSource.pitch = Random.Range(0.95f, 1.05f);
+                audioSource.PlayOneShot(slashSound, slashVolume); 
+            }
+            
+            StartCoroutine(ShowSlashEffect());
+            StartCoroutine(AttackLock()); 
+            
+            float lungeDir = spriteRenderer.flipX ? -1f : 1f;
+            rb.linearVelocity = new Vector2(lungeDir * attackLungeForce, rb.linearVelocity.y); 
+            
+            Collider2D[] bullets = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bulletLayer);
+            foreach (Collider2D b in bullets) {
+                b.SendMessage("Deflect", SendMessageOptions.DontRequireReceiver);
+                TriggerHitStop(0.08f); 
+            }
+            
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+            foreach (Collider2D e in enemies) {
+                EnemyHealth enemyHealth = e.GetComponent<EnemyHealth>();
+                if (enemyHealth != null) {
+                    enemyHealth.TakeDamage(damage, transform.position);
+                    TriggerHitStop(0.15f); 
+                }
+            }
+        }
+    }
+
+    IEnumerator ShowSlashEffect() {
+        if (slashEffectGO == null) yield break; 
+        slashEffectGO.SetActive(true);
+        yield return new WaitForSeconds(effectDuration);
+        slashEffectGO.SetActive(false);
+    }
+
+    IEnumerator AttackLock() { 
+        isAttacking = true; 
+        yield return new WaitForSeconds(attackLockTime); 
+        isAttacking = false; 
+    }
+
     void OnDrawGizmosSelected() {
-        if (groundCheckPoint == null) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(groundCheckPoint.position, groundCheckPoint.position + Vector3.down * stairCheckDistance); 
+        if (groundCheckPoint != null) {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
+        }
         if (attackPoint != null) {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
@@ -539,59 +665,6 @@ public class Playermovement : MonoBehaviour
         if (wallCheckPoint != null) {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(wallCheckPoint.position, wallCheckRadius);
-        }
-    }
-    IEnumerator ShowSlashEffect() {
-        if (slashEffectGO == null) yield break; 
-        slashEffectGO.SetActive(true);
-        yield return new WaitForSeconds(effectDuration);
-        slashEffectGO.SetActive(false);
-    }
-    IEnumerator AttackLock() { isAttacking = true; yield return new WaitForSeconds(attackLockTime); isAttacking = false; rb.linearVelocity = Vector2.zero; }
-    void Attacking() {
-        var kb = Keyboard.current;
-        var mouse = Mouse.current;
-        if (kb == null) return;
-        bool attackInput = kb.jKey.wasPressedThisFrame || (mouse != null && mouse.leftButton.wasPressedThisFrame);
-        if (attackInput && Time.time >= nextAttackTime) {
-            nextAttackTime = Time.time + attackCooldown;
-            if (mouse != null) {
-                Vector2 mousePos = mainCam.ScreenToWorldPoint(mouse.position.ReadValue());
-                float directionToMouse = mousePos.x - transform.position.x;
-                if (directionToMouse > 0) {
-                    spriteRenderer.flipX = false;
-                    if (attackPoint != null) attackPoint.localRotation = Quaternion.Euler(0, 0, 0);
-                } else {
-                    spriteRenderer.flipX = true;
-                    if (attackPoint != null) attackPoint.localRotation = Quaternion.Euler(0, 180, 0);
-                }
-            }
-            if(animator) animator.SetTrigger("attack");
-            if (audioSource != null && slashSound != null) {
-                audioSource.pitch = Random.Range(0.95f, 1.05f);
-                audioSource.PlayOneShot(slashSound, slashVolume); 
-            }
-            StartCoroutine(ShowSlashEffect());
-            StartCoroutine(AttackLock()); 
-            float lungeDir = spriteRenderer.flipX ? -1f : 1f;
-            rb.linearVelocity = new Vector2(lungeDir * attackLungeForce, 0f); 
-            Collider2D[] bullets = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bulletLayer);
-            foreach (Collider2D b in bullets) {
-                EnemyBullet bulletScript = b.GetComponent<EnemyBullet>();
-                if (bulletScript != null) {
-                    bulletScript.Deflect(); 
-                    TriggerHitStop(0.08f); 
-                }
-            }
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-            foreach (Collider2D e in enemies) {
-                EnemyHealth eHealth = e.GetComponent<EnemyHealth>();
-                if (eHealth != null) {
-                    eHealth.TakeDamage(damage, transform.position); 
-                    if (CameraShake.instance != null) StartCoroutine(CameraShake.instance.Shake(0.15f, 0.2f));
-                    TriggerHitStop(0.15f); 
-                }
-            }
         }
     }
 }

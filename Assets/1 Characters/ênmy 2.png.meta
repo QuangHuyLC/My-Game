@@ -1,0 +1,3770 @@
+fileFormatVersion: 2
+guid: e9a8c85094f75ce4a91d920fbe91ba84
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8760111410516230291
+    second: "\xEAnmy 2_0"
+  - first:
+      213: -269077283078857419
+    second: "\xEAnmy 2_1"
+  - first:
+      213: -3082945888726980612
+    second: "\xEAnmy 2_2"
+  - first:
+      213: 8261874203854920201
+    second: "\xEAnmy 2_3"
+  - first:
+      213: -3388149086693560433
+    second: "\xEAnmy 2_4"
+  - first:
+      213: 4482906429735948256
+    second: "\xEAnmy 2_5"
+  - first:
+      213: 6569252001687043992
+    second: "\xEAnmy 2_6"
+  - first:
+      213: 3385777923538392190
+    second: "\xEAnmy 2_7"
+  - first:
+      213: 1844397214019490805
+    second: "\xEAnmy 2_8"
+  - first:
+      213: 5196664147838738918
+    second: "\xEAnmy 2_9"
+  - first:
+      213: -134628391680807414
+    second: "\xEAnmy 2_10"
+  - first:
+      213: 4497738245995573153
+    second: "\xEAnmy 2_11"
+  - first:
+      213: -3532446149662791882
+    second: "\xEAnmy 2_12"
+  - first:
+      213: 4813879198066589471
+    second: "\xEAnmy 2_13"
+  - first:
+      213: 7189354488798380716
+    second: "\xEAnmy 2_14"
+  - first:
+      213: -5997453457459530342
+    second: "\xEAnmy 2_15"
+  - first:
+      213: -5695767885369621349
+    second: "\xEAnmy 2_16"
+  - first:
+      213: 7753339326465638188
+    second: "\xEAnmy 2_17"
+  - first:
+      213: -6976390641601624294
+    second: "\xEAnmy 2_18"
+  - first:
+      213: 4949808942486076346
+    second: "\xEAnmy 2_19"
+  - first:
+      213: 3572018104341614696
+    second: "\xEAnmy 2_20"
+  - first:
+      213: -3682590299826033634
+    second: "\xEAnmy 2_21"
+  - first:
+      213: -8393008535316206319
+    second: "\xEAnmy 2_22"
+  - first:
+      213: -8141482571817805348
+    second: "\xEAnmy 2_23"
+  - first:
+      213: -7535727144478511699
+    second: "\xEAnmy 2_24"
+  - first:
+      213: -2872193312840730121
+    second: "\xEAnmy 2_25"
+  - first:
+      213: 560514109389322761
+    second: "\xEAnmy 2_26"
+  - first:
+      213: 4632343707543821097
+    second: "\xEAnmy 2_27"
+  - first:
+      213: -1940462102231601191
+    second: "\xEAnmy 2_28"
+  - first:
+      213: 7128892065085648902
+    second: "\xEAnmy 2_29"
+  - first:
+      213: 5283145996927204737
+    second: "\xEAnmy 2_30"
+  - first:
+      213: 3010631023779674172
+    second: "\xEAnmy 2_31"
+  - first:
+      213: 3676161007403458985
+    second: "\xEAnmy 2_32"
+  - first:
+      213: -8295565444045107850
+    second: "\xEAnmy 2_33"
+  - first:
+      213: 1852862123090757121
+    second: "\xEAnmy 2_34"
+  - first:
+      213: -5253301106248153314
+    second: "\xEAnmy 2_35"
+  - first:
+      213: -1193084293049431323
+    second: "\xEAnmy 2_36"
+  - first:
+      213: 1622166692754381404
+    second: "\xEAnmy 2_37"
+  - first:
+      213: 3197693694729569750
+    second: "\xEAnmy 2_38"
+  - first:
+      213: 7514749719768850509
+    second: "\xEAnmy 2_39"
+  - first:
+      213: 6103827010850696605
+    second: "\xEAnmy 2_40"
+  - first:
+      213: 6091157770178090007
+    second: "\xEAnmy 2_41"
+  - first:
+      213: 134982096212231366
+    second: "\xEAnmy 2_42"
+  - first:
+      213: 1545115613120084863
+    second: "\xEAnmy 2_43"
+  - first:
+      213: 8376824825331761311
+    second: "\xEAnmy 2_44"
+  - first:
+      213: -3229824919878076120
+    second: "\xEAnmy 2_45"
+  - first:
+      213: 1454512016067855199
+    second: "\xEAnmy 2_46"
+  - first:
+      213: -6992078257514679299
+    second: "\xEAnmy 2_47"
+  - first:
+      213: -8662173152697828005
+    second: "\xEAnmy 2_48"
+  - first:
+      213: -6883659174231862974
+    second: "\xEAnmy 2_49"
+  - first:
+      213: 1691525366817371045
+    second: "\xEAnmy 2_50"
+  - first:
+      213: -841389041969009146
+    second: "\xEAnmy 2_51"
+  - first:
+      213: 290962698120191148
+    second: "\xEAnmy 2_52"
+  - first:
+      213: -8974800237418877114
+    second: "\xEAnmy 2_53"
+  - first:
+      213: 3004948455995541306
+    second: "\xEAnmy 2_54"
+  - first:
+      213: -4941531513655481896
+    second: "\xEAnmy 2_55"
+  - first:
+      213: 5763918510378187754
+    second: "\xEAnmy 2_56"
+  - first:
+      213: -4926136029015151859
+    second: "\xEAnmy 2_57"
+  - first:
+      213: -5594620364248508822
+    second: "\xEAnmy 2_58"
+  - first:
+      213: -2331070339035620190
+    second: "\xEAnmy 2_59"
+  - first:
+      213: 3615170152411491418
+    second: "\xEAnmy 2_60"
+  - first:
+      213: -8301280988372901530
+    second: "\xEAnmy 2_61"
+  - first:
+      213: 575071672541000960
+    second: "\xEAnmy 2_62"
+  - first:
+      213: 1860782833434118414
+    second: "\xEAnmy 2_63"
+  - first:
+      213: 6025857006952841996
+    second: "\xEAnmy 2_64"
+  - first:
+      213: -393717377387322554
+    second: "\xEAnmy 2_65"
+  - first:
+      213: -449165412659519804
+    second: "\xEAnmy 2_66"
+  - first:
+      213: -822431147658856019
+    second: "\xEAnmy 2_67"
+  - first:
+      213: -6230143883614235865
+    second: "\xEAnmy 2_68"
+  - first:
+      213: -7351944980945541387
+    second: "\xEAnmy 2_69"
+  - first:
+      213: 2958950970292976103
+    second: "\xEAnmy 2_70"
+  - first:
+      213: -4621282896329067018
+    second: "\xEAnmy 2_71"
+  - first:
+      213: 3550248528376536257
+    second: "\xEAnmy 2_72"
+  - first:
+      213: 3856933434046061528
+    second: "\xEAnmy 2_73"
+  - first:
+      213: -6336939694710521614
+    second: "\xEAnmy 2_74"
+  - first:
+      213: 1049600773456466678
+    second: "\xEAnmy 2_75"
+  - first:
+      213: -2523498142186740581
+    second: "\xEAnmy 2_76"
+  - first:
+      213: 2742223950676017008
+    second: "\xEAnmy 2_77"
+  - first:
+      213: 2774917509149289199
+    second: "\xEAnmy 2_78"
+  - first:
+      213: 7537861841860673691
+    second: "\xEAnmy 2_79"
+  - first:
+      213: -6867322032701338
+    second: "\xEAnmy 2_80"
+  - first:
+      213: -364987823119886009
+    second: "\xEAnmy 2_81"
+  - first:
+      213: 6139614030847137315
+    second: "\xEAnmy 2_82"
+  - first:
+      213: 8624010123695635094
+    second: "\xEAnmy 2_83"
+  - first:
+      213: -1430635211325934498
+    second: "\xEAnmy 2_84"
+  - first:
+      213: -5549503553638454524
+    second: "\xEAnmy 2_85"
+  - first:
+      213: -2565460080063653681
+    second: "\xEAnmy 2_86"
+  - first:
+      213: -272934600843567553
+    second: "\xEAnmy 2_87"
+  - first:
+      213: 7096154066227161938
+    second: "\xEAnmy 2_88"
+  - first:
+      213: -4279832603592616249
+    second: "\xEAnmy 2_89"
+  - first:
+      213: 2283088292764940829
+    second: "\xEAnmy 2_90"
+  - first:
+      213: -5782472326916760271
+    second: "\xEAnmy 2_91"
+  - first:
+      213: -8289183849434660550
+    second: "\xEAnmy 2_92"
+  - first:
+      213: -2962218617134415972
+    second: "\xEAnmy 2_93"
+  - first:
+      213: 4213187854262694946
+    second: "\xEAnmy 2_94"
+  - first:
+      213: 4165094042231127441
+    second: "\xEAnmy 2_95"
+  - first:
+      213: -915999860396756957
+    second: "\xEAnmy 2_96"
+  - first:
+      213: 6727434336593852769
+    second: "\xEAnmy 2_97"
+  - first:
+      213: 5900668151611171938
+    second: "\xEAnmy 2_98"
+  - first:
+      213: -9154306692594746619
+    second: "\xEAnmy 2_99"
+  - first:
+      213: -3090396384551445262
+    second: "\xEAnmy 2_100"
+  - first:
+      213: 1133370574082655712
+    second: "\xEAnmy 2_101"
+  - first:
+      213: 8385773572914940348
+    second: "\xEAnmy 2_102"
+  - first:
+      213: 6168986547586361156
+    second: "\xEAnmy 2_103"
+  - first:
+      213: -5170748598168847693
+    second: "\xEAnmy 2_104"
+  - first:
+      213: -1177204016148706343
+    second: "\xEAnmy 2_105"
+  - first:
+      213: -8191362218345767240
+    second: "\xEAnmy 2_106"
+  - first:
+      213: -2730807189255940153
+    second: "\xEAnmy 2_107"
+  - first:
+      213: 6931661393370430077
+    second: "\xEAnmy 2_108"
+  - first:
+      213: 906850976964283101
+    second: "\xEAnmy 2_109"
+  - first:
+      213: 8441070249527999114
+    second: "\xEAnmy 2_110"
+  - first:
+      213: -2963494563482575453
+    second: "\xEAnmy 2_111"
+  - first:
+      213: -2000678952726691873
+    second: "\xEAnmy 2_112"
+  - first:
+      213: -1177080272409243391
+    second: "\xEAnmy 2_113"
+  - first:
+      213: 926042972251037516
+    second: "\xEAnmy 2_114"
+  - first:
+      213: 768429939556487476
+    second: "\xEAnmy 2_115"
+  - first:
+      213: 2959193626399288430
+    second: "\xEAnmy 2_116"
+  - first:
+      213: 4746494396495230528
+    second: "\xEAnmy 2_117"
+  - first:
+      213: -4983029141711444962
+    second: "\xEAnmy 2_118"
+  - first:
+      213: 4523762095689205733
+    second: "\xEAnmy 2_119"
+  - first:
+      213: 4824000597097231810
+    second: "\xEAnmy 2_120"
+  - first:
+      213: -7715910090183722707
+    second: "\xEAnmy 2_121"
+  - first:
+      213: -923126762850108283
+    second: "\xEAnmy 2_122"
+  - first:
+      213: -3501256395141533189
+    second: "\xEAnmy 2_123"
+  - first:
+      213: 2232504377708456327
+    second: "\xEAnmy 2_124"
+  - first:
+      213: 3258741280357244266
+    second: "\xEAnmy 2_125"
+  - first:
+      213: 9151987352157973206
+    second: "\xEAnmy 2_126"
+  - first:
+      213: 3138661813355880282
+    second: "\xEAnmy 2_127"
+  - first:
+      213: 4386806770344433356
+    second: "\xEAnmy 2_128"
+  - first:
+      213: 7658593293685849050
+    second: "\xEAnmy 2_129"
+  - first:
+      213: -695633013509926163
+    second: "\xEAnmy 2_130"
+  - first:
+      213: 8343672636481385498
+    second: "\xEAnmy 2_131"
+  - first:
+      213: 4498215021557522696
+    second: "\xEAnmy 2_132"
+  - first:
+      213: 5819637980232777236
+    second: "\xEAnmy 2_133"
+  - first:
+      213: -884177005234997440
+    second: "\xEAnmy 2_134"
+  - first:
+      213: -5939129557252430140
+    second: "\xEAnmy 2_135"
+  - first:
+      213: -6741544361646425073
+    second: "\xEAnmy 2_136"
+  - first:
+      213: -2640093142455449465
+    second: "\xEAnmy 2_137"
+  - first:
+      213: 5261642453681896851
+    second: "\xEAnmy 2_138"
+  - first:
+      213: 6340232719560293330
+    second: "\xEAnmy 2_139"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\xEAnmy 2_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1016
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3908aa03aea229970800000000000000
+      internalID: 8760111410516230291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_1"
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1016
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d15fcf2ab044cf0800000000000000
+      internalID: -269077283078857419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_2"
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 1016
+        width: 35
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf76da06c0d2735d0800000000000000
+      internalID: -3082945888726980612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_3"
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 1016
+        width: 35
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a5cbba0d218a270800000000000000
+      internalID: 8261874203854920201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_4"
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 1016
+        width: 34
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fe0995b50eaf0d0800000000000000
+      internalID: -3388149086693560433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_5"
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1016
+        width: 35
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0efc9b975ab763e30800000000000000
+      internalID: 4482906429735948256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_6"
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 945
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f7490e3ebaa2b50800000000000000
+      internalID: 6569252001687043992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_7"
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 945
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e749dd43513bcfe20800000000000000
+      internalID: 3385777923538392190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_8"
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 945
+        width: 45
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f31a5e7e7d989910800000000000000
+      internalID: 1844397214019490805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_9"
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 945
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1afe462824e1840800000000000000
+      internalID: 5196664147838738918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_10"
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 945
+        width: 47
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0eee29e034b12ef0800000000000000
+      internalID: -134628391680807414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_11"
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 945
+        width: 47
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af214dca1d2b6e30800000000000000
+      internalID: 4497738245995573153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_12"
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 945
+        width: 48
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637272d41fa3afec0800000000000000
+      internalID: -3532446149662791882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_13"
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 945
+        width: 48
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1fb66820a55ec240800000000000000
+      internalID: 4813879198066589471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_14"
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 945
+        width: 48
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca2003511d7b5c360800000000000000
+      internalID: 7189354488798380716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_15"
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 945
+        width: 48
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a95bf273bd3c4cca0800000000000000
+      internalID: -5997453457459530342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_16"
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 945
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b944775294194f0b0800000000000000
+      internalID: -5695767885369621349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_17"
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 945
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2ffc09d905699b60800000000000000
+      internalID: 7753339326465638188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_18"
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 945
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a17c9f88ca1ee2f90800000000000000
+      internalID: -6976390641601624294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_19"
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 876
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb3fea020141b440800000000000000
+      internalID: 4949808942486076346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_20"
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 876
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 860db806a8b529130800000000000000
+      internalID: 3572018104341614696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_21"
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 876
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ce19d22afc4ecc0800000000000000
+      internalID: -3682590299826033634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_22"
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 876
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11de7a7843b068b80800000000000000
+      internalID: -8393008535316206319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_23"
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 876
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd914c18cb4a30f80800000000000000
+      internalID: -8141482571817805348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_24"
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 876
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dade61d8618bb6790800000000000000
+      internalID: -7535727144478511699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_25"
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 876
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f930e5466be328d0800000000000000
+      internalID: -2872193312840730121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_26"
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 876
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90abebddc9857c700800000000000000
+      internalID: 560514109389322761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_27"
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 876
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b5aad0f04694040800000000000000
+      internalID: 4632343707543821097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_28"
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 876
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dfa060cff71215e0800000000000000
+      internalID: -1940462102231601191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_29"
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 876
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 600f78d0099eee260800000000000000
+      internalID: 7128892065085648902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_30"
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 876
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18d7f5bfa41815940800000000000000
+      internalID: 5283145996927204737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_31"
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 876
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38782217f8e7c920800000000000000
+      internalID: 3010631023779674172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_32"
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 807
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a1ec6785f8540330800000000000000
+      internalID: 3676161007403458985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_33"
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 807
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67d8fa03e2b30ec80800000000000000
+      internalID: -8295565444045107850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_34"
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 807
+        width: 58
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 106c998b840b6b910800000000000000
+      internalID: 1852862123090757121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_35"
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 807
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1789ef1a768817b0800000000000000
+      internalID: -5253301106248153314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_36"
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 836
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eac0bd1820517fe0800000000000000
+      internalID: -1193084293049431323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_37"
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 807
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5a58103308138610800000000000000
+      internalID: 1622166692754381404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_38"
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 838
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d5ccd6297d706c20800000000000000
+      internalID: 3197693694729569750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_39"
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 807
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d40e9c62e01c94860800000000000000
+      internalID: 7514749719768850509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_40"
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 839
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9da030b35625b450800000000000000
+      internalID: 6103827010850696605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_41"
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 807
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714535a38b3288450800000000000000
+      internalID: 6091157770178090007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_42"
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 840
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c484c7508d8fd100800000000000000
+      internalID: 134982096212231366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_43"
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 807
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bbee8b67a517510800000000000000
+      internalID: 1545115613120084863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_44"
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 842
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90c29bdbc5704470800000000000000
+      internalID: 8376824825331761311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_45"
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 807
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82976f3095b5d23d0800000000000000
+      internalID: -3229824919878076120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_46"
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 843
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f530347e8f67f2410800000000000000
+      internalID: 1454512016067855199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_47"
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 807
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df3fa13ded527fe90800000000000000
+      internalID: -6992078257514679299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_48"
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 843
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d358a6967c9c780800000000000000
+      internalID: -8662173152697828005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_49"
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 807
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2411d05c3745870a0800000000000000
+      internalID: -6883659174231862974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_50"
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 842
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a336b9eb51897710800000000000000
+      internalID: 1691525366817371045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_51"
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 807
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60ee78bcf19c254f0800000000000000
+      internalID: -841389041969009146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_52"
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 745
+        width: 44
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cacd7584805b90400800000000000000
+      internalID: 290962698120191148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_53"
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 747
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64f6e8e0cba137380800000000000000
+      internalID: -8974800237418877114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_54"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 680
+        width: 44
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3709f723b8b3b920800000000000000
+      internalID: 3004948455995541306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_55"
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 679
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d9aa2a05472c6bb0800000000000000
+      internalID: -4941531513655481896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_56"
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 679
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebf36db85d8dff40800000000000000
+      internalID: 5763918510378187754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_57"
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 679
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0b6c43a169d2abb0800000000000000
+      internalID: -4926136029015151859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_58"
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 679
+        width: 35
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a661dc79b6aeb52b0800000000000000
+      internalID: -5594620364248508822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_59"
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 679
+        width: 35
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac155f80ef56afd0800000000000000
+      internalID: -2331070339035620190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_60"
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 679
+        width: 34
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ce411891aab2230800000000000000
+      internalID: 3615170152411491418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_61"
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 679
+        width: 34
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66164535cecebcc80800000000000000
+      internalID: -8301280988372901530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_62"
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 592
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005323aa3a01bf700800000000000000
+      internalID: 575071672541000960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_63"
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 628
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e094cfec024d2d910800000000000000
+      internalID: 1860782833434118414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_64"
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 592
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0309be750520a350800000000000000
+      internalID: 6025857006952841996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_65"
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 626
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6432eea912c398af0800000000000000
+      internalID: -393717377387322554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_66"
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 592
+        width: 46
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce990ddf6e34c9f0800000000000000
+      internalID: -449165412659519804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_67"
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 592
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9b3978a332694f0800000000000000
+      internalID: -822431147658856019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_68"
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 592
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 723d99585251a89a0800000000000000
+      internalID: -6230143883614235865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_69"
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 592
+        width: 44
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f6668afdf4a8f990800000000000000
+      internalID: -7351944980945541387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_70"
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 592
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e93c14fa3e401920800000000000000
+      internalID: 2958950970292976103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_71"
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 619
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5b7bdb0b7eddfb0800000000000000
+      internalID: -4621282896329067018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_72"
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 592
+        width: 40
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc9c3ef934054130800000000000000
+      internalID: 3550248528376536257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_73"
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 620
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db94aaf584968530800000000000000
+      internalID: 3856933434046061528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_74"
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 592
+        width: 40
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f005b51ceaae08a0800000000000000
+      internalID: -6336939694710521614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_75"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 538
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f219d9a75ee09e00800000000000000
+      internalID: 1049600773456466678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_76"
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 505
+        width: 40
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b94e99b4fcbbafcd0800000000000000
+      internalID: -2523498142186740581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_77"
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 542
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07fbc9a77265e0620800000000000000
+      internalID: 2742223950676017008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_78"
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 505
+        width: 40
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feaeaddb5cc728620800000000000000
+      internalID: 2774917509149289199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_79"
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 546
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b90c31a686ddb9860800000000000000
+      internalID: 7537861841860673691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_80"
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 505
+        width: 40
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 660ceadf43a97eff0800000000000000
+      internalID: -6867322032701338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_81"
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 549
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7499897328d4feaf0800000000000000
+      internalID: -364987823119886009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_82"
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 505
+        width: 40
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326d5a69e6a443550800000000000000
+      internalID: 6139614030847137315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_83"
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 551
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a304af383aea770800000000000000
+      internalID: 8624010123695635094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_84"
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 505
+        width: 40
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5470c9eadc552ce0800000000000000
+      internalID: -1430635211325934498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_85"
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 505
+        width: 48
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40bac95abe33cf2b0800000000000000
+      internalID: -5549503553638454524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_86"
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 505
+        width: 40
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc85c5a46a7a56cd0800000000000000
+      internalID: -2565460080063653681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_87"
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 505
+        width: 40
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3e5ec53d67563cf0800000000000000
+      internalID: -272934600843567553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_88"
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 505
+        width: 40
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25be9e4b68a9a7260800000000000000
+      internalID: 7096154066227161938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_89"
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 418
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c61abc2ceafa94c0800000000000000
+      internalID: -4279832603592616249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_90"
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 473
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a7b19b4b82faf10800000000000000
+      internalID: 2283088292764940829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_91"
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 418
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d99963e0880cfa0800000000000000
+      internalID: -5782472326916760271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_92"
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 474
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31ca88f437e6fc80800000000000000
+      internalID: -8289183849434660550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_93"
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 418
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f77aabcd514e6d0800000000000000
+      internalID: -2962218617134415972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_94"
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 474
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2247151f700487a30800000000000000
+      internalID: 4213187854262694946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_95"
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 418
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d384bb6f26dc930800000000000000
+      internalID: 4165094042231127441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_96"
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 474
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3207ebaeaf6b943f0800000000000000
+      internalID: -915999860396756957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_97"
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 418
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 169317ab2e5ac5d50800000000000000
+      internalID: 6727434336593852769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_98"
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 473
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 264ae3abb6263e150800000000000000
+      internalID: 5900668151611171938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_99"
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 418
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50bb8ee809e55f080800000000000000
+      internalID: -9154306692594746619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_100"
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 471
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fcd8a3acd4bc15d0800000000000000
+      internalID: -3090396384551445262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_101"
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 418
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e5c313488a8abf00800000000000000
+      internalID: 1133370574082655712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_102"
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 469
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb9047482a0406470800000000000000
+      internalID: 8385773572914940348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_103"
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 418
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4476c019494ac9550800000000000000
+      internalID: 6168986547586361156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_104"
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 467
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bafb47bb8fcd38b0800000000000000
+      internalID: -5170748598168847693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_105"
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 418
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db0b453f2bb9afe0800000000000000
+      internalID: -1177204016148706343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_106"
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 464
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bed1fc467f625e80800000000000000
+      internalID: -8191362218345767240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_107"
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 331
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c7115e64593a1ad0800000000000000
+      internalID: -2730807189255940153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_108"
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 375
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a322fcf45323060800000000000000
+      internalID: 6931661393370430077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_109"
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 331
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda0c2aa828c59c00800000000000000
+      internalID: 906850976964283101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_110"
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 371
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8afb335ba4b42570800000000000000
+      internalID: 8441070249527999114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_111"
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 331
+        width: 40
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3add1d1556d8fd6d0800000000000000
+      internalID: -2963494563482575453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_112"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 368
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdfff11b7192c34e0800000000000000
+      internalID: -2000678952726691873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_113"
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 259
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1015dea8abb2aafe0800000000000000
+      internalID: -1177080272409243391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_114"
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 259
+        width: 45
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4f15c74d27f9dc00800000000000000
+      internalID: 926042972251037516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_115"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 205
+        width: 46
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4311a0e65f20aaa00800000000000000
+      internalID: 768429939556487476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_116"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 69
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6c212bbcea211920800000000000000
+      internalID: 2959193626399288430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_117"
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 167
+        width: 69
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046fa7f618feed140800000000000000
+      internalID: 4746494396495230528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_118"
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 170
+        width: 69
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e14aed69569b8dab0800000000000000
+      internalID: -4983029141711444962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_119"
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 168
+        width: 69
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e78ee978a1a7ce30800000000000000
+      internalID: 4523762095689205733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_120"
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 166
+        width: 70
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c5b0420cfa42f240800000000000000
+      internalID: 4824000597097231810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_121"
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 165
+        width: 69
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d293fb357a49be490800000000000000
+      internalID: -7715910090183722707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_122"
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 165
+        width: 69
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58cb9a1a9156033f0800000000000000
+      internalID: -923126762850108283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_123"
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 168
+        width: 69
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf1360cebd9096fc0800000000000000
+      internalID: -3501256395141533189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_124"
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 166
+        width: 70
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78921d837e27bfe10800000000000000
+      internalID: 2232504377708456327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_125"
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 166
+        width: 70
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6d589ecdef593d20800000000000000
+      internalID: 3258741280357244266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_126"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da6e3ae104620f70800000000000000
+      internalID: 9151987352157973206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_127"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 85
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f19273a44ce8b20800000000000000
+      internalID: 3138661813355880282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_128"
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 52
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc698ace38111ec30800000000000000
+      internalID: 4386806770344433356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_129"
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 53
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb755d060ac84a60800000000000000
+      internalID: 7658593293685849050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_130"
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 49
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2d4b7b57d9856f0800000000000000
+      internalID: -695633013509926163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_131"
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 25
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a14be936e0eaac370800000000000000
+      internalID: 8343672636481385498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_132"
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 25
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8012343cabedc6e30800000000000000
+      internalID: 4498215021557522696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_133"
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 25
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e7525c8e183c050800000000000000
+      internalID: 5819637980232777236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_134"
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 25
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0473664c2b5cab3f0800000000000000
+      internalID: -884177005234997440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_135"
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 25
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c622f07229f39da0800000000000000
+      internalID: -5939129557252430140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_136"
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 25
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0cf68e0f193172a0800000000000000
+      internalID: -6741544361646425073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_137"
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 25
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7888ff556418c5bd0800000000000000
+      internalID: -2640093142455449465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_138"
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39df2da2feb150940800000000000000
+      internalID: 5261642453681896851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\xEAnmy 2_139"
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 0
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db33b201180df750800000000000000
+      internalID: 6340232719560293330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "\xEAnmy 2_0": 8760111410516230291
+      "\xEAnmy 2_1": -269077283078857419
+      "\xEAnmy 2_10": -134628391680807414
+      "\xEAnmy 2_100": -3090396384551445262
+      "\xEAnmy 2_101": 1133370574082655712
+      "\xEAnmy 2_102": 8385773572914940348
+      "\xEAnmy 2_103": 6168986547586361156
+      "\xEAnmy 2_104": -5170748598168847693
+      "\xEAnmy 2_105": -1177204016148706343
+      "\xEAnmy 2_106": -8191362218345767240
+      "\xEAnmy 2_107": -2730807189255940153
+      "\xEAnmy 2_108": 6931661393370430077
+      "\xEAnmy 2_109": 906850976964283101
+      "\xEAnmy 2_11": 4497738245995573153
+      "\xEAnmy 2_110": 8441070249527999114
+      "\xEAnmy 2_111": -2963494563482575453
+      "\xEAnmy 2_112": -2000678952726691873
+      "\xEAnmy 2_113": -1177080272409243391
+      "\xEAnmy 2_114": 926042972251037516
+      "\xEAnmy 2_115": 768429939556487476
+      "\xEAnmy 2_116": 2959193626399288430
+      "\xEAnmy 2_117": 4746494396495230528
+      "\xEAnmy 2_118": -4983029141711444962
+      "\xEAnmy 2_119": 4523762095689205733
+      "\xEAnmy 2_12": -3532446149662791882
+      "\xEAnmy 2_120": 4824000597097231810
+      "\xEAnmy 2_121": -7715910090183722707
+      "\xEAnmy 2_122": -923126762850108283
+      "\xEAnmy 2_123": -3501256395141533189
+      "\xEAnmy 2_124": 2232504377708456327
+      "\xEAnmy 2_125": 3258741280357244266
+      "\xEAnmy 2_126": 9151987352157973206
+      "\xEAnmy 2_127": 3138661813355880282
+      "\xEAnmy 2_128": 4386806770344433356
+      "\xEAnmy 2_129": 7658593293685849050
+      "\xEAnmy 2_13": 4813879198066589471
+      "\xEAnmy 2_130": -695633013509926163
+      "\xEAnmy 2_131": 8343672636481385498
+      "\xEAnmy 2_132": 4498215021557522696
+      "\xEAnmy 2_133": 5819637980232777236
+      "\xEAnmy 2_134": -884177005234997440
+      "\xEAnmy 2_135": -5939129557252430140
+      "\xEAnmy 2_136": -6741544361646425073
+      "\xEAnmy 2_137": -2640093142455449465
+      "\xEAnmy 2_138": 5261642453681896851
+      "\xEAnmy 2_139": 6340232719560293330
+      "\xEAnmy 2_14": 7189354488798380716
+      "\xEAnmy 2_15": -5997453457459530342
+      "\xEAnmy 2_16": -5695767885369621349
+      "\xEAnmy 2_17": 7753339326465638188
+      "\xEAnmy 2_18": -6976390641601624294
+      "\xEAnmy 2_19": 4949808942486076346
+      "\xEAnmy 2_2": -3082945888726980612
+      "\xEAnmy 2_20": 3572018104341614696
+      "\xEAnmy 2_21": -3682590299826033634
+      "\xEAnmy 2_22": -8393008535316206319
+      "\xEAnmy 2_23": -8141482571817805348
+      "\xEAnmy 2_24": -7535727144478511699
+      "\xEAnmy 2_25": -2872193312840730121
+      "\xEAnmy 2_26": 560514109389322761
+      "\xEAnmy 2_27": 4632343707543821097
+      "\xEAnmy 2_28": -1940462102231601191
+      "\xEAnmy 2_29": 7128892065085648902
+      "\xEAnmy 2_3": 8261874203854920201
+      "\xEAnmy 2_30": 5283145996927204737
+      "\xEAnmy 2_31": 3010631023779674172
+      "\xEAnmy 2_32": 3676161007403458985
+      "\xEAnmy 2_33": -8295565444045107850
+      "\xEAnmy 2_34": 1852862123090757121
+      "\xEAnmy 2_35": -5253301106248153314
+      "\xEAnmy 2_36": -1193084293049431323
+      "\xEAnmy 2_37": 1622166692754381404
+      "\xEAnmy 2_38": 3197693694729569750
+      "\xEAnmy 2_39": 7514749719768850509
+      "\xEAnmy 2_4": -3388149086693560433
+      "\xEAnmy 2_40": 6103827010850696605
+      "\xEAnmy 2_41": 6091157770178090007
+      "\xEAnmy 2_42": 134982096212231366
+      "\xEAnmy 2_43": 1545115613120084863
+      "\xEAnmy 2_44": 8376824825331761311
+      "\xEAnmy 2_45": -3229824919878076120
+      "\xEAnmy 2_46": 1454512016067855199
+      "\xEAnmy 2_47": -6992078257514679299
+      "\xEAnmy 2_48": -8662173152697828005
+      "\xEAnmy 2_49": -6883659174231862974
+      "\xEAnmy 2_5": 4482906429735948256
+      "\xEAnmy 2_50": 1691525366817371045
+      "\xEAnmy 2_51": -841389041969009146
+      "\xEAnmy 2_52": 290962698120191148
+      "\xEAnmy 2_53": -8974800237418877114
+      "\xEAnmy 2_54": 3004948455995541306
+      "\xEAnmy 2_55": -4941531513655481896
+      "\xEAnmy 2_56": 5763918510378187754
+      "\xEAnmy 2_57": -4926136029015151859
+      "\xEAnmy 2_58": -5594620364248508822
+      "\xEAnmy 2_59": -2331070339035620190
+      "\xEAnmy 2_6": 6569252001687043992
+      "\xEAnmy 2_60": 3615170152411491418
+      "\xEAnmy 2_61": -8301280988372901530
+      "\xEAnmy 2_62": 575071672541000960
+      "\xEAnmy 2_63": 1860782833434118414
+      "\xEAnmy 2_64": 6025857006952841996
+      "\xEAnmy 2_65": -393717377387322554
+      "\xEAnmy 2_66": -449165412659519804
+      "\xEAnmy 2_67": -822431147658856019
+      "\xEAnmy 2_68": -6230143883614235865
+      "\xEAnmy 2_69": -7351944980945541387
+      "\xEAnmy 2_7": 3385777923538392190
+      "\xEAnmy 2_70": 2958950970292976103
+      "\xEAnmy 2_71": -4621282896329067018
+      "\xEAnmy 2_72": 3550248528376536257
+      "\xEAnmy 2_73": 3856933434046061528
+      "\xEAnmy 2_74": -6336939694710521614
+      "\xEAnmy 2_75": 1049600773456466678
+      "\xEAnmy 2_76": -2523498142186740581
+      "\xEAnmy 2_77": 2742223950676017008
+      "\xEAnmy 2_78": 2774917509149289199
+      "\xEAnmy 2_79": 7537861841860673691
+      "\xEAnmy 2_8": 1844397214019490805
+      "\xEAnmy 2_80": -6867322032701338
+      "\xEAnmy 2_81": -364987823119886009
+      "\xEAnmy 2_82": 6139614030847137315
+      "\xEAnmy 2_83": 8624010123695635094
+      "\xEAnmy 2_84": -1430635211325934498
+      "\xEAnmy 2_85": -5549503553638454524
+      "\xEAnmy 2_86": -2565460080063653681
+      "\xEAnmy 2_87": -272934600843567553
+      "\xEAnmy 2_88": 7096154066227161938
+      "\xEAnmy 2_89": -4279832603592616249
+      "\xEAnmy 2_9": 5196664147838738918
+      "\xEAnmy 2_90": 2283088292764940829
+      "\xEAnmy 2_91": -5782472326916760271
+      "\xEAnmy 2_92": -8289183849434660550
+      "\xEAnmy 2_93": -2962218617134415972
+      "\xEAnmy 2_94": 4213187854262694946
+      "\xEAnmy 2_95": 4165094042231127441
+      "\xEAnmy 2_96": -915999860396756957
+      "\xEAnmy 2_97": 6727434336593852769
+      "\xEAnmy 2_98": 5900668151611171938
+      "\xEAnmy 2_99": -9154306692594746619
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
