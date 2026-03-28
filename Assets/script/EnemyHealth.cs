@@ -25,8 +25,32 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("--- VISUAL ---")]
     public GameObject bloodEffect; 
-    public AudioClip hitSound; 
     public float knockbackForce = 5f; 
+    
+    [Header("--- KHO ÂM THANH QUÁI ---")]
+    public AudioSource audioSource;
+
+    [Space(10)]
+    public AudioClip hitSound;       // Tiếng bị chém trúng
+    [Range(0f, 1f)] public float hitVolume = 1f;
+
+    [Space(10)]
+    public AudioClip deathSound;     // Tiếng gục ngã
+    [Range(0f, 1f)] public float deathVolume = 1f;
+
+    [Space(10)]
+    public AudioClip[] footstepSounds; // Tiếng bước chân
+    [Range(0f, 1f)] public float footstepVolume = 0.5f;
+
+    [Space(10)]
+    public AudioClip attackSound;      // Tiếng chém/bắn (hoặc ném)
+    [Range(0f, 1f)] public float attackVolume = 1f;
+
+    [Space(10)]
+    [Tooltip("Dùng cho con ném Boomerang")]
+    public AudioClip boomerangSound;   // Tiếng ném Boomerang (MỚI THÊM)
+    [Range(0f, 1f)] public float boomerangVolume = 1f; // (MỚI THÊM)
+
 
     private Rigidbody2D rb;
     private SpriteRenderer spriteRen;
@@ -44,6 +68,9 @@ public class EnemyHealth : MonoBehaviour
 
         if (meleeAI == null) meleeAI = GetComponent<MeleeEnemy>();
         if (sniperAI == null) sniperAI = GetComponent<SniperEnemy>();
+        
+        // Tự động tìm loa
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(float damage, Vector2 attackerPos)
@@ -75,7 +102,16 @@ public class EnemyHealth : MonoBehaviour
             }
 
             if (bloodEffect != null) Instantiate(bloodEffect, transform.position, Quaternion.identity);
-            if (hitSound != null) AudioSource.PlayClipAtPoint(hitSound, transform.position, 1f);
+            
+            // ÂM THANH BỊ ĐÁNH
+            if (hitSound != null && audioSource != null) {
+                audioSource.pitch = Random.Range(0.9f, 1.1f);
+                audioSource.PlayOneShot(hitSound, hitVolume); 
+            }
+            else if (hitSound != null) {
+                AudioSource.PlayClipAtPoint(hitSound, transform.position, hitVolume); 
+            }
+
             if (spriteRen != null) {
                 spriteRen.color = Color.red;
                 Invoke("ResetColor", 0.1f);
@@ -89,6 +125,12 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
 
         Debug.Log("Quái chết -> Tắt não -> Chạy Anim -> Nhấp nháy -> Mất");
+
+        // 0. PHÁT ÂM THANH CHẾT TRƯỚC KHI BIẾN MẤT
+        if (deathSound != null)
+        {
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, deathVolume); 
+        }
 
         // 1. TẮT NÃO
         if (meleeAI != null) meleeAI.StopAttackImmediately();
@@ -111,29 +153,24 @@ public class EnemyHealth : MonoBehaviour
 
         if (coAnimationDie && animator != null)
         {
-            // TRƯỜNG HỢP CÓ ANIM DIE (Sniper)
             animator.StopPlayback();
-            animator.Play("Die"); // Chạy Die
-            thoiGianCho = deathAnimDuration; // Chờ hết anim Die
+            animator.Play("Die"); 
+            thoiGianCho = deathAnimDuration; 
         }
         else if (animator != null)
         {
-            // TRƯỜNG HỢP KHÔNG CÓ ANIM DIE (Spider)
             animator.StopPlayback();
-            animator.Play("Hurt"); // Chạy Hurt đỡ
-            thoiGianCho = thoiGianChoHurt; // Chờ hết anim Hurt
+            animator.Play("Hurt"); 
+            thoiGianCho = thoiGianChoHurt; 
         }
 
-        // Gọi chung 1 hàm xử lý nhấp nháy
         StartCoroutine(QuyTrinhChet(thoiGianCho));
     }
 
     IEnumerator QuyTrinhChet(float thoiGianChoAnim)
     {
-        // GIAI ĐOẠN 1: Chờ Animation (Die hoặc Hurt) diễn xong
         yield return new WaitForSeconds(thoiGianChoAnim);
 
-        // GIAI ĐOẠN 2: Nhấp nháy (Flicker)
         float timer = 0;
         while (timer < thoiGianFlicker)
         {
@@ -142,7 +179,6 @@ public class EnemyHealth : MonoBehaviour
             timer += tocDoFlicker;
         }
 
-        // GIAI ĐOẠN 3: Biến mất vĩnh viễn
         Destroy(gameObject);
     }
 
@@ -159,4 +195,36 @@ public class EnemyHealth : MonoBehaviour
     }
 
     void ResetColor() { if (spriteRen != null) spriteRen.color = Color.white; }
+
+    // =====================================================================
+    // CÁC HÀM BÊN DƯỚI DÙNG ĐỂ CẮM VÀO ANIMATION EVENT
+    // =====================================================================
+    public void PlayFootstepSound()
+    {
+        if (footstepSounds != null && footstepSounds.Length > 0 && audioSource != null)
+        {
+            int randomIndex = Random.Range(0, footstepSounds.Length);
+            audioSource.pitch = Random.Range(0.8f, 1.2f); 
+            audioSource.PlayOneShot(footstepSounds[randomIndex], footstepVolume); 
+        }
+    }
+
+    public void PlayAttackSound()
+    {
+        if (attackSound != null && audioSource != null)
+        {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(attackSound, attackVolume); 
+        }
+    }
+
+    // HÀM MỚI THÊM CHO CON BOOMERANG
+    public void PlayBoomerangSound()
+    {
+        if (boomerangSound != null && audioSource != null)
+        {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(boomerangSound, boomerangVolume); 
+        }
+    }
 }

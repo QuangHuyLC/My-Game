@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // BẮT BUỘC CÓ ĐỂ DÙNG ẢNH UI
+using UnityEngine.UI; 
 using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
@@ -10,8 +10,8 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
 
     [Header("Thanh Máu Pixel (MỚI THÊM)")]
-    public Image healthBarImage;   // Kéo cái HealthBarImage (UI) vào đây
-    public Sprite[] healthSprites; // Kéo 6 cái ảnh cắt ra vào đây (Element 0 -> 5)
+    public Image healthBarImage;   
+    public Sprite[] healthSprites; 
 
     [Header("Hiệu ứng Trúng đạn")]
     public float knockbackForce = 10f; 
@@ -20,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI & Effect")]
     public CanvasGroup gameOverCanvasGroup;
     public GameObject bloodEffect;
+    public GameObject gameplayUI; // Gom hết thanh máu, skill, slow-mo vào đây để tắt lúc chết
 
     // Các thành phần cần thiết
     private Animator anim;
@@ -46,34 +47,22 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // --- HÀM CẬP NHẬT ẢNH THANH MÁU ---
     void UpdateHealthUI()
     {
-        // Kiểm tra xem đã gán đủ đồ chưa, chưa gán thì thôi
         if (healthBarImage == null || healthSprites.Length == 0) return;
 
-        // 1. Tính phần trăm máu (Từ 0 đến 1)
         float percent = currentHealth / maxHealth; 
-        
-        // 2. Quy đổi ra số thứ tự ảnh (Index)
-        // Máu 100% -> Ảnh 0
-        // Máu 0% -> Ảnh cuối cùng
         int index = Mathf.FloorToInt((1f - percent) * (healthSprites.Length - 1));
-
-        // Kẹp lại cho chắc ăn (không bị lỗi index quá đà)
         index = Mathf.Clamp(index, 0, healthSprites.Length - 1);
-
-        // 3. Thay ảnh
         healthBarImage.sprite = healthSprites[index];
     }
-    // -----------------------------------
 
     public void TakeDamage(float damage, Vector2 damageSourcePos)
     {
         if (isDead) return;
 
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Không cho âm máu
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); 
 
         // CẬP NHẬT LẠI ẢNH THANH MÁU NGAY
         UpdateHealthUI();
@@ -110,7 +99,21 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         isDead = true;
-        if (anim != null) anim.SetTrigger("die");
+
+        // 1. TẮT TẤT CẢ GIAO DIỆN GAMEPLAY (Slow-mo, Máu, Kỹ năng...)
+        if (gameplayUI != null) gameplayUI.SetActive(false);
+
+        // 2. GỌI DJ ĐỔI NHẠC SANG BÀI LÚC CHẾT
+        if (MusicManager.instance != null) MusicManager.instance.PlayNhacChet();
+
+        // ---> [QUAN TRỌNG] ĐÓNG BĂNG THỜI GIAN NGAY LẬP TỨC <---
+        Time.timeScale = 0f;
+
+        if (anim != null) {
+            // ---> [QUAN TRỌNG] Cho phép animation chết vẫn chạy khi timeScale = 0 <---
+            anim.updateMode = AnimatorUpdateMode.UnscaledTime;
+            anim.SetTrigger("die");
+        }
         if (playerMove != null) {
             playerMove.enabled = false;
             playerMove.rb.linearVelocity = Vector2.zero;
@@ -121,12 +124,15 @@ public class PlayerHealth : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
         if (bloodEffect != null) Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        
         StartCoroutine(FadeInGameOver(1.5f));
     }
     
     IEnumerator FadeInGameOver(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        // ---> [QUAN TRỌNG] DÙNG THỜI GIAN THỰC VÌ THẾ GIỚI ĐÃ ĐÓNG BĂNG <---
+        yield return new WaitForSecondsRealtime(delay); 
+
         if (gameOverCanvasGroup != null)
         {
             float duration = 1f;
@@ -146,6 +152,12 @@ public class PlayerHealth : MonoBehaviour
     
     public void RetryGame()
     {
+        // ---> [QUAN TRỌNG] RÃ ĐÔNG THỜI GIAN TRƯỚC KHI TẢI LẠI MÀN CHƠI <---
+        Time.timeScale = 1f; 
+
+        // 3. GỌI DJ MỞ LẠI NHẠC QUẨY KHI BẤM CHƠI LẠI
+        if (MusicManager.instance != null) MusicManager.instance.PlayNhacChinh();
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
