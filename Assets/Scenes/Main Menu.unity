@@ -1048,6 +1048,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9283127b4ffba42853fec2953d8030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+  tenSceneGame: Level1
+  nutLoadGame: {fileID: 502349534}
 --- !u!4 &2027929040
 Transform:
   m_ObjectHideFlags: 0

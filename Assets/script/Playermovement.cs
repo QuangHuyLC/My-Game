@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.UI; 
+using UnityEngine.SceneManagement; 
 
 public class Playermovement : MonoBehaviour
 {
@@ -13,15 +14,9 @@ public class Playermovement : MonoBehaviour
     private Camera mainCam; 
 
     [Header("--- UI KỸ NĂNG (COOLDOWN) ---")]
-    [Tooltip("Kéo cái hình lớp phủ màu đen (Filled 360) của chiêu Chém vào đây")]
     public Image attackCooldownImage;
-    [Tooltip("Kéo cái hình lớp phủ màu đen (Filled 360) của chiêu Lăn vào đây")]
     public Image rollCooldownImage;
-    [Tooltip("Kéo cái hình lớp phủ màu đen (Filled 360) của chiêu Teleport vào đây")]
     public Image teleportCooldownImage;
-    
-    // ---> ĐÃ THÊM: Biến chứa UI của chiêu E (Reflex Mode)
-    [Tooltip("Kéo thanh năng lượng (Filled Horizontal) của chiêu E vào đây")]
     public Image slowMoBarImage; 
 
     [Header("AUDIO SYSTEM")]
@@ -67,7 +62,7 @@ public class Playermovement : MonoBehaviour
     public float knockbackForce = 12f; 
     public float hurtDuration = 0.25f; 
 
-    [Header("--- MOVEMENT FEEL (CỰC QUAN TRỌNG) ---")]
+    [Header("--- MOVEMENT FEEL ---")]
     public float coyoteTime = 0.2f; 
     public float jumpBufferTime = 0.2f;
     public float fallGravityMult = 5f; 
@@ -91,10 +86,16 @@ public class Playermovement : MonoBehaviour
 
     [Header("Ground Check")]
     public Transform groundCheckPoint; 
-    public float groundCheckRadius = 0.2f; 
+    public Vector2 groundCheckSize = new Vector2(0.3f, 0.1f); 
     public LayerMask groundLayer;
     [Range(0.1f, 2f)] public float stairCheckDistance = 1.0f;       
     [SerializeField] bool isGrounded;  
+    
+    // ---> [BỘ CÔNG CỤ TOÁN HỌC FIX DỐC] <---
+    [Header("Slope Mechanics")]
+    [SerializeField] private bool isOnSlope;
+    private Vector2 slopeNormalPerp; 
+    private float lastJumpTime = 0f; 
 
     [Header("Combat & Roll")]
     public Transform attackPoint;      
@@ -157,19 +158,36 @@ public class Playermovement : MonoBehaviour
         if (attackCooldownImage != null) attackCooldownImage.fillAmount = 0f;
         if (rollCooldownImage != null) rollCooldownImage.fillAmount = 0f;
         if (teleportCooldownImage != null) teleportCooldownImage.fillAmount = 0f;
-        
-        // Cập nhật đầy bình cho UI E lúc mới vô game
         if (slowMoBarImage != null) slowMoBarImage.fillAmount = 1f;
+
+        if (PlayerPrefs.GetInt("HasCheckpoint", 0) == 1)
+        {
+            string mapDaLuu = PlayerPrefs.GetString("SavedMap", "");
+            string mapHienTai = SceneManager.GetActiveScene().name;
+
+            if (mapHienTai == mapDaLuu)
+            {
+                float spawnX = PlayerPrefs.GetFloat("CheckpointX");
+                float spawnY = PlayerPrefs.GetFloat("CheckpointY");
+                transform.position = new Vector2(spawnX, spawnY);
+            }
+        }
     }
 
     void Update()
     {
         if (Time.timeScale == 0) return; 
 
-        if (isHurting || isRolling) return;
+        HandleTimers();
+        UpdateSkillUI();
+
+        if (isHurting || isRolling) 
+        {
+            ApplyGravityLogic();
+            return;
+        }
 
         CheckGrounded();
-        HandleTimers();
         CheckWallLogic();
         UpdateAnimator(); 
         ApplyGravityLogic();
@@ -182,55 +200,66 @@ public class Playermovement : MonoBehaviour
         Rolling(); 
         TeleportSkill(); 
         HandleSlowMotion();
-        
-        UpdateSkillUI();
     }
 
     void UpdateSkillUI()
     {
         if (attackCooldownImage != null)
-        {
-            float attackRemaining = nextAttackTime - Time.time;
-            attackCooldownImage.fillAmount = Mathf.Clamp01(attackRemaining / attackCooldown);
-        }
-
+            attackCooldownImage.fillAmount = Mathf.Clamp01((nextAttackTime - Time.time) / attackCooldown);
         if (rollCooldownImage != null)
-        {
-            float rollRemaining = nextRollTime - Time.time;
-            rollCooldownImage.fillAmount = Mathf.Clamp01(rollRemaining / rollCooldown);
-        }
-
+            rollCooldownImage.fillAmount = Mathf.Clamp01((nextRollTime - Time.time) / rollCooldown);
         if (teleportCooldownImage != null)
-        {
-            float teleportRemaining = nextTeleportTime - Time.time;
-            teleportCooldownImage.fillAmount = Mathf.Clamp01(teleportRemaining / teleportCooldown);
-        }
-
-        // ---> ĐÃ THÊM: Tính toán phần trăm cho UI của chiêu E (Reflex Mode)
+            teleportCooldownImage.fillAmount = Mathf.Clamp01((nextTeleportTime - Time.time) / teleportCooldown);
         if (slowMoBarImage != null)
-        {
             slowMoBarImage.fillAmount = currentReflexTime / maxReflexTime;
-        }
     }
 
     void CheckGrounded()
     {
-        bool currentCheck = false;
-        if (groundCheckPoint != null)
-            currentCheck = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
-        
-        if (currentCheck && !isGrounded && rb.linearVelocity.y < 0.1f)
+        if (Time.time - lastJumpTime < 0.15f)
         {
-            if (audioSource != null && landSound != null)
-            {
-                audioSource.pitch = Random.Range(0.9f, 1.1f);
-                audioSource.PlayOneShot(landSound, landVolume);
-            }
-            CreateDust(landDustPrefab != null ? landDustPrefab : jumpDustPrefab, 0); 
+            isGrounded = false;
+            isOnSlope = false;
+            return;
         }
 
-        if (currentCheck) { isGrounded = true; lastOnGroundTime = Time.time; }
-        else { isGrounded = false; }
+        bool currentCheck = false;
+        if (groundCheckPoint != null)
+        {
+            RaycastHit2D hit = Physics2D.BoxCast(groundCheckPoint.position, groundCheckSize, 0f, Vector2.down, stairCheckDistance, groundLayer);
+            currentCheck = hit.collider != null;
+
+            RaycastHit2D slopeHit = Physics2D.Raycast(groundCheckPoint.position, Vector2.down, stairCheckDistance + 0.2f, groundLayer);
+            if (slopeHit.collider != null)
+            {
+                slopeNormalPerp = Vector2.Perpendicular(slopeHit.normal).normalized;
+                isOnSlope = Vector2.Angle(slopeHit.normal, Vector2.up) > 0.1f;
+            }
+            else
+            {
+                isOnSlope = false;
+            }
+        }
+        
+        if (currentCheck)
+        {
+            if (!isGrounded) 
+            {
+                if (audioSource != null && landSound != null)
+                {
+                    audioSource.pitch = Random.Range(0.9f, 1.1f);
+                    audioSource.PlayOneShot(landSound, landVolume);
+                }
+                CreateDust(landDustPrefab != null ? landDustPrefab : jumpDustPrefab, 0); 
+            }
+            isGrounded = true; 
+            lastOnGroundTime = Time.time; 
+        }
+        else 
+        { 
+            isGrounded = false; 
+            isOnSlope = false;
+        }
     }
 
     void HandleTimers()
@@ -249,10 +278,21 @@ public class Playermovement : MonoBehaviour
     {
         if (isWallGrabbing || isWallSliding || isRolling) return;
 
+        var kb = Keyboard.current;
+        bool isMoving = false;
+        if (kb != null && (kb.aKey.isPressed || kb.dKey.isPressed)) isMoving = true;
+
+        if (isGrounded && !isMoving) 
+        {
+            rb.gravityScale = 0f; 
+            rb.linearVelocity = Vector2.zero; 
+            return; 
+        }
+
         if (rb.linearVelocity.y < 0) {
             rb.gravityScale = defaultGravityScale * fallGravityMult;
         }
-        else if (rb.linearVelocity.y > 0 && Keyboard.current != null && !Keyboard.current.spaceKey.isPressed) {
+        else if (rb.linearVelocity.y > 0 && kb != null && !kb.spaceKey.isPressed) {
             rb.gravityScale = defaultGravityScale * (1f / jumpCutMult); 
         }
         else {
@@ -268,7 +308,7 @@ public class Playermovement : MonoBehaviour
         animator.SetBool("isGrounded", isGrounded);
 
         if (!isWallSliding && !isWallGrabbing && !isCrouching) {
-            bool isJumpingUp = rb.linearVelocity.y > 0.1f;
+            bool isJumpingUp = (rb.linearVelocity.y > 0.1f) && !isGrounded; 
             bool isFallingForReal = (rb.linearVelocity.y < 0) && !isGrounded;
             animator.SetBool("jump", isJumpingUp || isFallingForReal);
         } else {
@@ -321,6 +361,8 @@ public class Playermovement : MonoBehaviour
 
     void PerformJump(float force)
     {
+        lastJumpTime = Time.time; 
+
         if (audioSource != null && jumpSound != null) {
             audioSource.pitch = 1f; 
             audioSource.PlayOneShot(jumpSound, jumpVolume);
@@ -370,7 +412,24 @@ public class Playermovement : MonoBehaviour
             if (kb.dKey.isPressed) horizontal = 1f;
         }
 
-        rb.linearVelocity = new Vector2(horizontal * Speed, rb.linearVelocity.y);
+        if (isGrounded && horizontal == 0f) 
+        {
+            rb.linearVelocity = Vector2.zero;
+            if (rb.sharedMaterial != null) rb.sharedMaterial.friction = 10f;
+        }
+        else 
+        {
+            if (rb.sharedMaterial != null) rb.sharedMaterial.friction = 0f;
+            
+            if (isGrounded && isOnSlope)
+            {
+                rb.linearVelocity = slopeNormalPerp * Speed * -horizontal;
+            }
+            else
+            {
+                rb.linearVelocity = new Vector2(horizontal * Speed, rb.linearVelocity.y);
+            }
+        }
 
         if(animator) {
             if (isWallGrabbing) animator.SetFloat("speed", 0f); 
@@ -401,7 +460,7 @@ public class Playermovement : MonoBehaviour
             float dist = teleportDistance;
             
             RaycastHit2D wallHit = Physics2D.Raycast(transform.position, dir, teleportDistance, wallLayer);
-            if (wallHit.collider != null) dist = wallHit.distance - 0.5f; 
+            if (wallHit.collider != null) dist = Mathf.Max(0f, wallHit.distance - 0.5f); 
             
             Vector2 targetPos = (Vector2)transform.position + (dir * dist);
             
@@ -656,7 +715,10 @@ public class Playermovement : MonoBehaviour
     void OnDrawGizmosSelected() {
         if (groundCheckPoint != null) {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(groundCheckPoint.position, groundCheckRadius);
+            Gizmos.DrawWireCube(groundCheckPoint.position, groundCheckSize);
+            
+            Gizmos.color = new Color(1f, 0f, 0f, 0.3f); 
+            Gizmos.DrawWireCube(groundCheckPoint.position + Vector3.down * stairCheckDistance, groundCheckSize);
         }
         if (attackPoint != null) {
             Gizmos.color = Color.yellow;
@@ -666,5 +728,39 @@ public class Playermovement : MonoBehaviour
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(wallCheckPoint.position, wallCheckRadius);
         }
+    }
+
+    // ==========================================
+    // ---> HỆ THỐNG ĂN ĐÒN & NẢY NGƯỢC LẠI <---
+    // ==========================================
+    public void TakeDamage(float damageAmount, Transform damageSource)
+    {
+        // Nếu đang lướt (vô địch) hoặc đang bị choáng rồi thì né đòn
+        if (isHurting || isRolling) return; 
+
+        Debug.Log("Úi á! Ninja vừa mất " + damageAmount + " máu!");
+
+        // Trí mạng: Tính toán hướng để hất văng Ninja ra xa cái bẫy
+        float knockbackDir = transform.position.x < damageSource.position.x ? -1f : 1f;
+        StartCoroutine(HurtRoutine(knockbackDir));
+    }
+
+    IEnumerator HurtRoutine(float knockbackDir)
+    {
+        isHurting = true;
+        
+        // Khóa phím, hất văng Ninja lên trời và lùi về sau
+        rb.linearVelocity = Vector2.zero; 
+        rb.AddForce(new Vector2(knockbackDir * knockbackForce, knockbackForce * 0.7f), ForceMode2D.Impulse);
+
+        // Đổi màu Ninja thành ĐỎ lòm báo hiệu mất máu
+        if(spriteRenderer) spriteRenderer.color = Color.red;
+
+        // Tạm dừng 1 lúc (thời gian bị choáng)
+        yield return new WaitForSeconds(hurtDuration);
+
+        // Hết choáng, trả lại màu gốc, cho phép chạy tiếp!
+        if(spriteRenderer) spriteRenderer.color = Color.white;
+        isHurting = false; 
     }
 }

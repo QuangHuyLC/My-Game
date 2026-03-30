@@ -17,7 +17,7 @@ public class VNController : MonoBehaviour
     public CanvasGroup uiCanvasGroup;
     public TextMeshProUGUI textNoiDung;
     public TextMeshProUGUI textTenNhanVat;
-    public Button nutBamToanManHinh; // Cái nút này sẽ lo việc click chuột
+    public Button nutBamToanManHinh; 
 
     [Header("--- Nhân vật ---")]
     public Image anhNhanVat1;
@@ -29,6 +29,11 @@ public class VNController : MonoBehaviour
     public float tocDoChu = 0.03f;
     public AudioSource amThanhGoChu;
     [Range(0.5f, 2f)] public float doMeoTieng = 0.1f; 
+
+    [Header("--- Nhạc Nền Xuyên Suốt ---")]
+    public AudioSource nguonPhatNhac; 
+    public AudioClip nhacNenVN;       
+    [Range(0f, 1f)] public float amLuongNhac = 0.5f;
 
     [Header("--- Kịch Bản Chính ---")]
     public string[] danhSachTen; 
@@ -49,7 +54,18 @@ public class VNController : MonoBehaviour
 
     void Start()
     {
-        // 1. Khóa chân nhân vật ngay lập tức
+        Time.timeScale = 0f;
+
+        // BẬT NHẠC NỀN NGAY LÚC BẮT ĐẦU VÀ CHO LẶP LẠI VÔ TẬN
+        if (nguonPhatNhac != null && nhacNenVN != null)
+        {
+            nguonPhatNhac.clip = nhacNenVN;
+            nguonPhatNhac.volume = amLuongNhac;
+            nguonPhatNhac.loop = true;
+            nguonPhatNhac.ignoreListenerPause = true; 
+            nguonPhatNhac.Play();
+        }
+
         if (playerScript != null) 
         {
             playerScript.enabled = false; 
@@ -60,11 +76,9 @@ public class VNController : MonoBehaviour
         if (anhNhanVat1) scaleGocNV1 = anhNhanVat1.transform.localScale;
         if (anhNhanVat2) scaleGocNV2 = anhNhanVat2.transform.localScale;
 
-        // Ẩn UI hội thoại trước
         if (uiCanvasGroup != null) uiCanvasGroup.alpha = 0f; 
         if (vnCanvas != null) vnCanvas.SetActive(false); 
         
-        // Bắt đầu Intro
         if (introPanel != null && noiDungIntro.Length > 0) {
             introPanel.SetActive(true);
             dangOIntro = true;
@@ -74,16 +88,12 @@ public class VNController : MonoBehaviour
             VaoGameChinh();
         }
 
-        // Đăng ký sự kiện Click cho nút toàn màn hình
         if (nutBamToanManHinh != null)
             nutBamToanManHinh.onClick.AddListener(XuLyInput);
     }
 
     void Update()
     {
-        // --- SỬA LỖI Ở ĐÂY: CHỈ GIỮ LẠI PHÍM BẤM (Space / Enter) ---
-        // (Bỏ phần check chuột Mouse.leftButton đi vì nút UI đã làm việc đó rồi)
-        
         var kb = Keyboard.current;
         bool bamPhim = false;
 
@@ -92,7 +102,6 @@ public class VNController : MonoBehaviour
             bamPhim = true;
         }
 
-        // Nếu bấm phím Space/Enter thì gọi hàm xử lý
         if (bamPhim) XuLyInput();
     }
 
@@ -104,7 +113,6 @@ public class VNController : MonoBehaviour
         }
         else
         {
-            // Chỉ xử lý hội thoại nếu Canvas đang bật và đã hiện rõ
             if (vnCanvas != null && vnCanvas.activeSelf && uiCanvasGroup.alpha >= 0.9f) 
             {
                 XuLyHoiThoai();
@@ -135,9 +143,8 @@ public class VNController : MonoBehaviour
 
     IEnumerator ChuyenCanhVaoGame()
     {
-        dangOIntro = true; // Vẫn khóa input
+        dangOIntro = true; 
         
-        // Fade Out màn hình đen Intro
         if (introPanel != null)
         {
             Image img = introPanel.GetComponent<Image>();
@@ -154,16 +161,13 @@ public class VNController : MonoBehaviour
             introPanel.SetActive(false);
         }
 
-        // Đợi 1 giây để người chơi ngắm nhân vật
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSecondsRealtime(1f); 
 
-        // Sau đó mới gọi hiện hội thoại
         VaoGameChinh(); 
     }
 
     void VaoGameChinh()
     {
-        // Bật GameObject lên nhưng set Alpha = 0 (Tàng hình)
         if (vnCanvas != null) vnCanvas.SetActive(true);
         if (uiCanvasGroup != null) uiCanvasGroup.alpha = 0f;
         
@@ -171,7 +175,6 @@ public class VNController : MonoBehaviour
         
         if (danhSachThoai.Length > 0)
         {
-            // Gọi hàm hiện từ từ
             StartCoroutine(HienHoiThoaiTuTu());
         }
         else
@@ -183,7 +186,7 @@ public class VNController : MonoBehaviour
     IEnumerator HienHoiThoaiTuTu()
     {
         float timer = 0f;
-        float duration = 1.5f; // Hiện dần trong 1.5 giây
+        float duration = 1.5f; 
 
         while (timer < duration)
         {
@@ -195,7 +198,6 @@ public class VNController : MonoBehaviour
 
         if (uiCanvasGroup != null) uiCanvasGroup.alpha = 1f;
 
-        // Hiện xong mới bắt đầu chạy chữ & cho phép bấm
         BatDauCauThoai();
         dangOIntro = false; 
     }
@@ -225,7 +227,12 @@ public class VNController : MonoBehaviour
 
     void KetThucHoiThoai()
     {
-        Debug.Log("Hết truyện! Player được di chuyển.");
+        Debug.Log("Hết truyện! Player được di chuyển. Nhạc vẫn tiếp tục quẩy!");
+        
+        // Rã đông thời gian cho Ninja chạy
+        Time.timeScale = 1f;
+
+        // Chỉ tắt bảng chữ UI đi thôi, không tắt Audio Source
         if (vnCanvas != null) vnCanvas.SetActive(false);
         if (playerScript != null) playerScript.enabled = true; 
     }

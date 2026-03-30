@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth;
 
-    [Header("Thanh Máu Pixel (MỚI THÊM)")]
+    [Header("Thanh Máu Pixel")]
     public Image healthBarImage;   
     public Sprite[] healthSprites; 
 
@@ -20,7 +20,17 @@ public class PlayerHealth : MonoBehaviour
     [Header("UI & Effect")]
     public CanvasGroup gameOverCanvasGroup;
     public GameObject bloodEffect;
-    public GameObject gameplayUI; // Gom hết thanh máu, skill, slow-mo vào đây để tắt lúc chết
+    public GameObject healEffect; 
+    public GameObject gameplayUI; 
+
+    // ==========================================
+    // ---> Ổ CẮM ÂM THANH (MỚI THÊM) <---
+    // ==========================================
+    [Header("Âm thanh Hồi Máu")]
+    public AudioSource audioSource;
+    public AudioClip healSound;
+    [Range(0f, 1f)] public float healVolume = 0.8f;
+    // ==========================================
 
     // Các thành phần cần thiết
     private Animator anim;
@@ -34,6 +44,9 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         playerMove = GetComponent<Playermovement>();
         rb = GetComponent<Rigidbody2D>();
+        
+        // Tự động tìm cái mồm phát âm thanh trên người Ninja
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
 
         // Cập nhật thanh máu ngay khi vào game cho đúng
         UpdateHealthUI();
@@ -64,14 +77,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); 
 
-        // CẬP NHẬT LẠI ẢNH THANH MÁU NGAY
         UpdateHealthUI();
         
-        // 1. HIỆU ỨNG NHÁY ĐỎ
         GetComponent<SpriteRenderer>().color = Color.red;
         Invoke("ResetColor", 0.1f);
 
-        // 2. LOGIC GIẬT LÙI & CHOÁNG (Nếu chưa chết)
         if (currentHealth > 0)
         {
             Vector2 knockbackDir = (transform.position - (Vector3)damageSourcePos).normalized;
@@ -80,6 +90,30 @@ public class PlayerHealth : MonoBehaviour
         }
 
         if (currentHealth <= 0) Die();
+    }
+
+    public void Heal(float amount)
+    {
+        if (isDead) return;
+
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); 
+
+        UpdateHealthUI();
+
+        if (healEffect != null)
+        {
+            GameObject fx = Instantiate(healEffect, transform.position, Quaternion.identity, transform);
+        }
+
+        GetComponent<SpriteRenderer>().color = Color.green;
+        Invoke("ResetColor", 0.15f);
+
+        // ---> BẬT TIẾNG HỒI MÁU TẠI ĐÂY <---
+        if (audioSource != null && healSound != null)
+        {
+            audioSource.PlayOneShot(healSound, healVolume);
+        }
     }
 
     void ResetColor() { GetComponent<SpriteRenderer>().color = Color.white; }
@@ -100,17 +134,12 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
 
-        // 1. TẮT TẤT CẢ GIAO DIỆN GAMEPLAY (Slow-mo, Máu, Kỹ năng...)
         if (gameplayUI != null) gameplayUI.SetActive(false);
-
-        // 2. GỌI DJ ĐỔI NHẠC SANG BÀI LÚC CHẾT
         if (MusicManager.instance != null) MusicManager.instance.PlayNhacChet();
 
-        // ---> [QUAN TRỌNG] ĐÓNG BĂNG THỜI GIAN NGAY LẬP TỨC <---
         Time.timeScale = 0f;
 
         if (anim != null) {
-            // ---> [QUAN TRỌNG] Cho phép animation chết vẫn chạy khi timeScale = 0 <---
             anim.updateMode = AnimatorUpdateMode.UnscaledTime;
             anim.SetTrigger("die");
         }
@@ -130,7 +159,6 @@ public class PlayerHealth : MonoBehaviour
     
     IEnumerator FadeInGameOver(float delay)
     {
-        // ---> [QUAN TRỌNG] DÙNG THỜI GIAN THỰC VÌ THẾ GIỚI ĐÃ ĐÓNG BĂNG <---
         yield return new WaitForSecondsRealtime(delay); 
 
         if (gameOverCanvasGroup != null)
@@ -152,12 +180,8 @@ public class PlayerHealth : MonoBehaviour
     
     public void RetryGame()
     {
-        // ---> [QUAN TRỌNG] RÃ ĐÔNG THỜI GIAN TRƯỚC KHI TẢI LẠI MÀN CHƠI <---
         Time.timeScale = 1f; 
-
-        // 3. GỌI DJ MỞ LẠI NHẠC QUẨY KHI BẤM CHƠI LẠI
         if (MusicManager.instance != null) MusicManager.instance.PlayNhacChinh();
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
