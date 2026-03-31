@@ -120,6 +120,8 @@ public class Playermovement : MonoBehaviour
     public bool isRolling = false;    
     public bool isCrouching = false;  
     public bool isHurting = false; 
+    // 👉 [ĐÃ SỬA] Thêm cờ để nhận biết Ninja đang bị Boss trói
+    public bool isLockedByBoss = false; 
     
     float nextAttackTime = 0f;
     float nextRollTime = 0f;
@@ -467,9 +469,15 @@ public class Playermovement : MonoBehaviour
             RaycastHit2D[] enemiesHit = Physics2D.RaycastAll(transform.position, dir, dist, enemyLayer);
             foreach (RaycastHit2D hit in enemiesHit) {
                 EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+                BossAI boss = hit.collider.GetComponent<BossAI>();
+
                 if (enemyHealth != null) {
                     enemyHealth.TakeDamage(damage * 2, transform.position);
                     TriggerHitStop(0.1f); 
+                }
+                else if (boss != null) {
+                    boss.TakeDamage(damage * 2); 
+                    TriggerHitStop(0.1f);
                 }
             }
 
@@ -691,9 +699,15 @@ public class Playermovement : MonoBehaviour
             Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
             foreach (Collider2D e in enemies) {
                 EnemyHealth enemyHealth = e.GetComponent<EnemyHealth>();
+                BossAI boss = e.GetComponent<BossAI>();
+
                 if (enemyHealth != null) {
                     enemyHealth.TakeDamage(damage, transform.position);
                     TriggerHitStop(0.15f); 
+                }
+                else if (boss != null) {
+                    boss.TakeDamage(damage); 
+                    TriggerHitStop(0.15f);
                 }
             }
         }
@@ -730,17 +744,12 @@ public class Playermovement : MonoBehaviour
         }
     }
 
-    // ==========================================
-    // ---> HỆ THỐNG ĂN ĐÒN & NẢY NGƯỢC LẠI <---
-    // ==========================================
     public void TakeDamage(float damageAmount, Transform damageSource)
     {
-        // Nếu đang lướt (vô địch) hoặc đang bị choáng rồi thì né đòn
         if (isHurting || isRolling) return; 
 
         Debug.Log("Úi á! Ninja vừa mất " + damageAmount + " máu!");
 
-        // Trí mạng: Tính toán hướng để hất văng Ninja ra xa cái bẫy
         float knockbackDir = transform.position.x < damageSource.position.x ? -1f : 1f;
         StartCoroutine(HurtRoutine(knockbackDir));
     }
@@ -749,18 +758,33 @@ public class Playermovement : MonoBehaviour
     {
         isHurting = true;
         
-        // Khóa phím, hất văng Ninja lên trời và lùi về sau
-        rb.linearVelocity = Vector2.zero; 
-        rb.AddForce(new Vector2(knockbackDir * knockbackForce, knockbackForce * 0.7f), ForceMode2D.Impulse);
+        // 👉 [ĐÃ SỬA] Chỉ đẩy lùi nếu KHÔNG BỊ TRÓI
+        if (!isLockedByBoss)
+        {
+            rb.linearVelocity = Vector2.zero; 
+            rb.AddForce(new Vector2(knockbackDir * knockbackForce, knockbackForce * 0.7f), ForceMode2D.Impulse);
+        }
 
-        // Đổi màu Ninja thành ĐỎ lòm báo hiệu mất máu
         if(spriteRenderer) spriteRenderer.color = Color.red;
 
-        // Tạm dừng 1 lúc (thời gian bị choáng)
         yield return new WaitForSeconds(hurtDuration);
 
-        // Hết choáng, trả lại màu gốc, cho phép chạy tiếp!
         if(spriteRenderer) spriteRenderer.color = Color.white;
         isHurting = false; 
+    }
+
+    // ==========================================
+    // ---> HỆ THỐNG BỊ BOSS TRÓI (ULTIMATE) <---
+    // ==========================================
+    public void LockPlayerForUltimate(bool isLocked)
+    {
+        // 👉 [ĐĐÃ SỬA] Cập nhật cờ để hàm HurtRoutine biết đường mà không hất văng
+        isLockedByBoss = isLocked; 
+        canMove = !isLocked; 
+        if (isLocked)
+        {
+            rb.linearVelocity = Vector2.zero; 
+            if(animator) animator.SetFloat("speed", 0f); 
+        }
     }
 }

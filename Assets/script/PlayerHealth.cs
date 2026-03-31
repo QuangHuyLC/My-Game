@@ -122,6 +122,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (playerMove != null && rb != null)
         {
+            // 👉 [ĐÃ SỬA] CHỐT CHẶN Ở ĐÂY: Nếu đang bị Boss trói thì dẹp luôn vụ hất văng!
+            if (playerMove.isLockedByBoss) yield break; 
+
             playerMove.isHurting = true; 
             rb.linearVelocity = Vector2.zero; 
             rb.AddForce(dir * knockbackForce, ForceMode2D.Impulse);

@@ -4038,8 +4038,8 @@ TextureImporter:
         y: 1254
         width: 32
         height: 74
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47575915}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4060,8 +4060,8 @@ TextureImporter:
         y: 1246
         width: 32
         height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.521019, y: 0.4645964}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4082,8 +4082,8 @@ TextureImporter:
         y: 1238
         width: 31
         height: 80
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.50723165, y: 0.44394684}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4104,8 +4104,8 @@ TextureImporter:
         y: 1230
         width: 31
         height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5289287, y: 0.38912663}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4126,8 +4126,8 @@ TextureImporter:
         y: 1222
         width: 30
         height: 101
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4941142, y: 0.3601594}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4148,8 +4148,8 @@ TextureImporter:
         y: 1064
         width: 30
         height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5052183, y: 0.31713867}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4170,8 +4170,8 @@ TextureImporter:
         y: 1055
         width: 30
         height: 123
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.54096276, y: 0.28323886}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4324,8 +4324,8 @@ TextureImporter:
         y: 1047
         width: 30
         height: 78
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5120219, y: 0.442195}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4346,8 +4346,8 @@ TextureImporter:
         y: 1047
         width: 32
         height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49999905, y: 0.46440366}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4368,8 +4368,8 @@ TextureImporter:
         y: 1047
         width: 32
         height: 74
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.4999981, y: 0.4658797}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4390,8 +4390,8 @@ TextureImporter:
         y: 1047
         width: 30
         height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.50600994, y: 0.4607942}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4412,8 +4412,8 @@ TextureImporter:
         y: 1047
         width: 30
         height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5220622, y: 0.46403348}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -4434,8 +4434,8 @@ TextureImporter:
         y: 1046
         width: 27
         height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5172006, y: 0.4734654}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5376,12 +5376,12 @@ TextureImporter:
       name: Layer 13_208
       rect:
         serializedVersion: 2
-        x: 184
-        y: 238
-        width: 27
-        height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 185
+        y: 240
+        width: 25
+        height: 67
+      alignment: 9
+      pivot: {x: 0.51944417, y: 0.511227}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -5398,9 +5398,9 @@ TextureImporter:
       name: Layer 13_209
       rect:
         serializedVersion: 2
-        x: 225
+        x: 365
         y: 238
-        width: 281
+        width: 39
         height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -5422,7 +5422,7 @@ TextureImporter:
         serializedVersion: 2
         x: 554
         y: 238
-        width: 115
+        width: 28
         height: 70
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -5834,6 +5834,72 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Layer 13_229
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 239
+        width: 139
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbef3c03d27e98d439b78501ef230164
+      internalID: -1818659112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer 13_230
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 238
+        width: 108
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888420bc5d136a4438086aefa45de530
+      internalID: -1925372904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Layer 13_231
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 237
+        width: 77
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88307495a0cdac24db830ab4f974f838
+      internalID: 763119620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -5993,7 +6059,10 @@ TextureImporter:
       Layer 13_226: 561415054738365851
       Layer 13_227: 6280932032737500221
       Layer 13_228: 5806134675472699413
+      Layer 13_229: -1818659112
       Layer 13_23: 9112297414204749393
+      Layer 13_230: -1925372904
+      Layer 13_231: 763119620
       Layer 13_24: -6926589983615482726
       Layer 13_25: -4303603268119545733
       Layer 13_26: -8019051123702411924

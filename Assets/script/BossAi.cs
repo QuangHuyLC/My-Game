@@ -9,6 +9,10 @@ public class BossAI : MonoBehaviour
     public float currentHealth;
     public int currentPhase = 1;
 
+    // 👉 [HIGHLIGHT: CÔNG TẮC KÍCH HOẠT BOSS]
+    [Header("--- TRẠNG THÁI ---")]
+    public bool isActivated = false; 
+
     [Header("--- UI THANH MÁU ---")]
     public Image healthBarFill; 
 
@@ -39,8 +43,15 @@ public class BossAI : MonoBehaviour
     public float slamRadius = 3.5f; 
     public int slamDamage = 40;     
 
+    [Header("--- ULTIMATE SKILL (PHASE 3) ---")]
+    public float ultiDrawTime = 1.0f;     
+    public float ultiSlashInterval = 0.2f;
+    public float ultiSheatheTime = 1.0f;  
+    private bool hasUsedUltimate = false; 
+
     [Header("--- THÀNH PHẦN ---")]
     public Animator animator;
+    public Animator swordAnimator; 
     public SpriteRenderer spriteRenderer;
     public Rigidbody2D rb;
 
@@ -71,8 +82,15 @@ public class BossAI : MonoBehaviour
     void Update()
     {
         if (Time.timeScale == 0) return; 
-
         if (isDead) return;
+
+        // 👉 [HIGHLIGHT: NẾU CHƯA KÍCH HOẠT THÌ ĐỨNG IM]
+        if (!isActivated) 
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            if(animator) animator.SetFloat("moveSpeed", 0f);
+            return; 
+        }
 
         if (isTransitioning || player == null) 
         {
@@ -171,30 +189,38 @@ public class BossAI : MonoBehaviour
         Collider2D hitPlayer = Physics2D.OverlapCircle(attackPoint.position, attackRadius, playerLayer);
         if (hitPlayer != null)
         {
-            hitPlayer.GetComponent<PlayerHealth>().TakeDamage(attackDamage, transform.position);
+            // Trừ máu trực tiếp vào PlayerHealth
+            PlayerHealth health = hitPlayer.GetComponent<PlayerHealth>();
+            if(health != null) health.TakeDamage(attackDamage, transform.position);
         }
     }
 
     public void TakeDamage(float damageAmount)
     {
-        if (isDead || isTransitioning) return; 
+        if (isDead || (isTransitioning && currentPhase < 3)) return; 
         
         currentHealth -= damageAmount;
         if (healthBarFill != null) healthBarFill.fillAmount = currentHealth / maxHealth;
 
-        // KIỂM TRA CHẾT TRƯỚC! Nếu chết thì DỪNG LUÔN, không gọi lệnh "hurt" hay nháy đỏ nữa
         if (currentHealth <= 0)
         {
             Die();
             return; 
         }
 
-        // Nếu chưa chết mới chạy đống này
         animator.SetTrigger("hurt");
         spriteRenderer.color = Color.red; 
         Invoke("ResetColor", 0.1f); 
 
-        if (currentHealth <= maxHealth / 2 && currentPhase == 1)
+        if (currentHealth <= 200f && !hasUsedUltimate)
+        {
+            hasUsedUltimate = true;
+            StopAllCoroutines(); 
+            StartCoroutine(ExecuteUltimate()); 
+            return; 
+        }
+
+        if (currentHealth <= maxHealth / 2 && currentPhase == 1 && !isTransitioning)
         {
             StartCoroutine(TransitionToPhase2());
         }
@@ -256,7 +282,8 @@ public class BossAI : MonoBehaviour
         Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, slamRadius, playerLayer);
         if (hitPlayer != null)
         {
-            hitPlayer.GetComponent<PlayerHealth>().TakeDamage(slamDamage, transform.position);
+            PlayerHealth health = hitPlayer.GetComponent<PlayerHealth>();
+            if(health != null) health.TakeDamage(slamDamage, transform.position);
         }
 
         currentSpeed = phase2Speed;
@@ -267,23 +294,72 @@ public class BossAI : MonoBehaviour
         isTransitioning = false; 
     }
 
+    public IEnumerator ExecuteUltimate()
+    {
+        isTransitioning = true; 
+        isAttacking = true;
+        currentPhase = 3;
+        rb.linearVelocity = Vector2.zero; 
+
+        animator.SetTrigger("ultiDraw"); 
+        yield return new WaitForSeconds(ultiDrawTime); 
+
+        Playermovement playerScript = null;
+        if (player != null)
+        {
+            playerScript = player.GetComponent<Playermovement>();
+            if (playerScript != null) playerScript.LockPlayerForUltimate(true);
+        }
+
+        for (int i = 1; i <= 9; i++)
+        {
+            animator.SetTrigger("ultiSlash"); 
+            
+            if (swordAnimator != null && player != null) 
+            {
+                swordAnimator.transform.position = new Vector3(player.position.x, player.position.y + 0.5f, 0f);
+                SpriteRenderer swordSprite = swordAnimator.GetComponent<SpriteRenderer>();
+                if (swordSprite != null) swordSprite.flipX = Random.value > 0.5f; 
+                swordAnimator.SetTrigger("ultiSlash"); 
+            }
+
+            float dmg = (i == 9) ? 10f : 5f; 
+
+            if (player != null) 
+            {
+                PlayerHealth healthScript = player.GetComponent<PlayerHealth>();
+                if (healthScript != null) healthScript.TakeDamage(dmg, transform.position);
+                if (playerScript != null) playerScript.TriggerHitStop(0.05f); 
+            }
+            
+            yield return new WaitForSeconds(ultiSlashInterval); 
+        }
+
+        animator.SetTrigger("ultiSheathe");
+        if (swordAnimator != null) swordAnimator.SetTrigger("ultiSheathe");
+        yield return new WaitForSeconds(ultiSheatheTime); 
+
+        if (playerScript != null) playerScript.LockPlayerForUltimate(false);
+        
+        isAttacking = false;
+        isTransitioning = false; 
+    }
+
+    public void DrawSwordEvent()
+    {
+        if (swordAnimator != null) 
+        {
+            swordAnimator.SetTrigger("ultiDraw");
+        }
+    }
+
     void Die()
     {
         isDead = true;
-        
-        // Cực kỳ quan trọng: Dừng MỌI hành động đang dở dang (combo, nhảy, đập đất...)
         StopAllCoroutines(); 
         CancelInvoke("ResetColor");
         
-        // Dọn dẹp rác trigger phòng hờ Animator bị kẹt
-        animator.ResetTrigger("hurt");
-        animator.ResetTrigger("attack");
-        animator.ResetTrigger("AttackNormal");
-        animator.ResetTrigger("AttackStrong");
-
-        // Gọi lệnh chết
         animator.SetTrigger("die");
-        
         rb.linearVelocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll; 
         
@@ -295,7 +371,6 @@ public class BossAI : MonoBehaviour
             healthBarFill.transform.parent.gameObject.SetActive(false);
         }
         
-        // Set 4 giây = 1 giây diễn ngã gục + 3 giây nằm im trên sàn phơi xác
         Destroy(gameObject, 4f); 
     }
 
@@ -308,7 +383,6 @@ public class BossAI : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackPoint.position, attackRadius);
         }
-
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, slamRadius);
     }
